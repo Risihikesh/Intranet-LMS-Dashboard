@@ -1,244 +1,358 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script
+        src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp,container-queries"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+
     <title>Lead Management</title>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
 </head>
-<body>
-    <div>
-        <div>
-            <div>DASHBOARDS / Lead Management</div>
-            <div>Lead Management</div>
-            <div>
-                <input class="w-3/4 pl-3 border-none text-gray-400 outline-none" placeholder="Search here" />
+
+<body class="font-inter">
+    <div class="container mx-auto">
+        <div class="flex flex-col gap-2">
+            <div class="pt-4 font-normal font-inter text-sm leading-5 text-gray-600">DASHBOARDS / Lead Management</div>
+            <div class="font-medium text-2xl flex justify-between text-gray-900">
+                Lead Management
+                <div class="h-8 flex flex-row gap-2">
+                    <button id="add-lead-button"
+                        class="font-medium text-sm rounded text-gray-200 w-24 h-full bg-purple-600">+ Add Lead</button>
+                    <span class="items-center justify-center h-8 w-8 rounded text-center bg-gray-200">...</span>
+                </div>
             </div>
-        </div>
-
-        <div>
-            
-
-<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-    <!-- <div class="flex items-center justify-between flex-column flex-wrap md:flex-row space-y-4 md:space-y-0 pb-4 bg-white dark:bg-gray-900">
-        <div>
-            <button id="dropdownActionButton" data-dropdown-toggle="dropdownAction" class="inline-flex items-center text-gray-500 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm px-3 py-1.5 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700" type="button">
-                <span class="sr-only">Action button</span>
-                Action
-                <svg class="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
-                </svg>
-            </button> -->
-            <!-- Dropdown menu -->
-            <!-- <div id="dropdownAction" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
-                <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownActionButton">
-                    <li>
-                        <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Reward</a>
-                    </li>
-                    <li>
-                        <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Promote</a>
-                    </li>
-                    <li>
-                        <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Activate account</a>
-                    </li>
-                </ul>
-                <div class="py-1">
-                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Delete User</a>
+            <div class=" flex flex-row justify-between mt-6">
+                <div class="w-1/3 h-8 flex items-center border border-gray-300  rounded mr-5"
+                    style="background: rgba(16, 24, 40, 0.05);">
+                    <div class="pl-3">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M13.6967 12.5708L16.98 15.9125C17.1271 16.0715 17.2065 16.2815 17.2015 16.498C17.1964 16.7145 17.1072 16.9206 16.9528 17.0725C16.7984 17.2244 16.5909 17.3102 16.3744 17.3117C16.1578 17.3133 15.9491 17.2305 15.7925 17.0808L12.5109 13.7425C11.2447 14.6964 9.66328 15.1334 8.08694 14.9652C6.51059 14.7969 5.05708 14.036 4.02072 12.8363C2.98436 11.6367 2.44259 10.0881 2.50511 8.50399C2.56763 6.91993 3.22978 5.41881 4.35747 4.3046C5.48516 3.19038 6.99412 2.54632 8.57883 2.50284C10.1635 2.45936 11.7055 3.0197 12.8926 4.07041C14.0797 5.12111 14.8232 6.58366 14.9725 8.16192C15.1218 9.74017 14.6657 11.3162 13.6967 12.5708ZM8.75004 13.3333C9.96562 13.3333 11.1314 12.8505 11.9909 11.9909C12.8505 11.1314 13.3334 9.96558 13.3334 8.75C13.3334 7.53443 12.8505 6.36864 11.9909 5.5091C11.1314 4.64956 9.96562 4.16667 8.75004 4.16667C7.53446 4.16667 6.36868 4.64956 5.50913 5.5091C4.64959 6.36864 4.16671 7.53443 4.16671 8.75C4.16671 9.96558 4.64959 11.1314 5.50913 11.9909C6.36868 12.8505 7.53446 13.3333 8.75004 13.3333Z"
+                                fill="#94969C" />
+                        </svg>
+                    </div>
+                    <input class="w-3/4 pl-3  border-none text-gray-400 outline-none" placeholder="Search here"
+                        style="background: rgba(16, 24, 40, 0);" />
+                </div>
+                <div class=" bg-gray-100 flex flex-row h-8 rounded px-4 items-center font-medium text-gray-600">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="24" height="24" fill="white" fill-opacity="0.01" />
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M6.99999 13H17L18 11H5.99999L6.99999 13ZM3.99299 6C3.44499 6 3.20299 6.405 3.44699 6.895L3.99999 8H20L20.553 6.895C20.8 6.4 20.555 6 20.007 6H3.99299ZM10.778 17.556C10.8509 17.6861 10.9561 17.7953 11.0834 17.8731C11.2107 17.9508 11.3559 17.9945 11.505 18H12.495C12.774 18 13.1 17.8 13.222 17.556L14 16H9.99999L10.778 17.556Z"
+                            fill="#182230" />
+                    </svg>
+                    Filter
                 </div>
             </div>
         </div>
-        <label for="table-search" class="sr-only">Search</label>
-        <div class="relative">
-            <div class="absolute inset-y-0 rtl:inset-r-0 start-0 flex items-center ps-3 pointer-events-none">
-                <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
-                </svg>
-            </div>
-            <input type="text" id="table-search-users" class="block p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search for users">
-        </div>
-    </div> -->
-    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-        <thead class="text-xs text-gray-700 bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-            <tr>
-                <th scope="col" class="p-4">
-                    <div class="flex items-center">
-                        <input id="checkbox-all-search" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                        <label for="checkbox-all-search" class="sr-only">checkbox</label>
-                    </div>
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Name
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Status
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Email
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Phone Number
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Approach
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Last Follow-up
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    Next Follow-up
-                </th>
-                <th scope="col" class="px-6 py-3">
-                    
-                </th>
-                
-                
-            </tr>
-        </thead>
-        <tbody>
-            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                <td class="w-4 p-4">
-                    <div class="flex items-center">
-                        <input id="checkbox-table-search-1" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                        <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
-                    </div>
-                </td>
-                <th scope="row" class="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white">
-                    <!-- <img class="w-10 h-10 rounded-full" src="/docs/images/people/profile-picture-1.jpg" alt="Jese image"> -->
-                    <div class="ps-3">
-                        <div class="text-base font-semibold">Isanur Sardar</div>
-                        <!-- <div class="font-normal text-gray-500">neil.sims@flowbite.com</div> -->
-                    </div>  
-                </th>
-                <td class="px-6 py-4">
-                    <div class="flex items-center">
-                        <div class="h-2.5 w-2.5 rounded-full bg-green-500 me-2"></div> Confirmed
-                    </div>
-                </td>
-                <td class="px-6 py-4">
-                    demo@gmail.com
-                </td>
-                <td class="px-6 py-4">
-                    +911234567890
-                </td>
-                
-                
-            </tr>
-            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                <td class="w-4 p-4">
-                    <div class="flex items-center">
-                        <input id="checkbox-table-search-2" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                        <label for="checkbox-table-search-2" class="sr-only">checkbox</label>
-                    </div>
-                </td>
-                <th scope="row" class="flex items-center px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    <!-- <img class="w-10 h-10 rounded-full" src="/docs/images/people/profile-picture-3.jpg" alt="Jese image"> -->
-                    <div class="ps-3">
-                        <div class="text-base font-semibold">Mrinal Das</div>
-                        <!-- <div class="font-normal text-gray-500">bonnie@flowbite.com</div> -->
-                    </div>
-                </th>
-                <td class="px-6 py-4">
-                    <div class="flex items-center">
-                        <div class="h-2.5 w-2.5 rounded-full bg-green-500 me-2"></div> Confirmed
-                    </div>
-                </td>
-                <td class="px-6 py-4">
-                    demo@gmail.com
-                </td>
-                <td class="px-6 py-4">
-                   +911234567890
-                </td>
-                
-                
-            </tr>
-            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                <td class="w-4 p-4">
-                    <div class="flex items-center">
-                        <input id="checkbox-table-search-2" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                        <label for="checkbox-table-search-2" class="sr-only">checkbox</label>
-                    </div>
-                </td>
-                <th scope="row" class="flex items-center px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    <!-- <img class="w-10 h-10 rounded-full" src="/docs/images/people/profile-picture-2.jpg" alt="Jese image"> -->
-                    <div class="ps-3">
-                        <div class="text-base font-semibold">Sumit Kumar</div>
-                        <!-- <div class="font-normal text-gray-500">jese@flowbite.com</div> -->
-                    </div>
-                </th>
-                <td class="px-6 py-4">
-                    <div class="flex items-center">
-                        <div class="h-2.5 w-2.5 rounded-full bg-green-500 me-2"></div> Confirmed
-                    </div>
-                </td>
-                <td class="px-6 py-4">
-                    demo@gmail.com
-                </td>
-                <td class="px-6 py-4">
-                    +911234567890
-                </td>
-                
-                
-            </tr>
-            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                <td class="w-4 p-4">
-                    <div class="flex items-center">
-                        <input id="checkbox-table-search-2" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                        <label for="checkbox-table-search-2" class="sr-only">checkbox</label>
-                    </div>
-                </td>
-                <th scope="row" class="flex items-center px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    <!-- <img class="w-10 h-10 rounded-full" src="/docs/images/people/profile-picture-5.jpg" alt="Jese image"> -->
-                    <div class="ps-3">
-                        <div class="text-base font-semibold">Anushree Das</div>
-                        <!-- <div class="font-normal text-gray-500">thomes@flowbite.com</div> -->
-                    </div>
-                </th>
-                <td class="px-6 py-4">
-                    <div class="flex items-center">
-                        <div class="h-2.5 w-2.5 rounded-full bg-green-500 me-2"></div> Confirmed
-                    </div>
-                </td>
-                <td class="px-6 py-4">
-                    demo@gmail.com
-                </td>
-                <td class="px-6 py-4">
-                    +911234567890
-                </td>
-                
-                
-            </tr>
-            <tr class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
-                <td class="w-4 p-4">
-                    <div class="flex items-center">
-                        <input id="checkbox-table-search-3" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                        <label for="checkbox-table-search-3" class="sr-only">checkbox</label>
-                    </div>
-                </td>
-                <th scope="row" class="flex items-center px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    <!-- <img class="w-10 h-10 rounded-full" src="/docs/images/people/profile-picture-4.jpg" alt="Jese image"> -->
-                    <div class="ps-3">
-                        <div class="text-base font-semibold">Dev Kumar</div>
-                        <!-- <div class="font-normal text-gray-500">leslie@flowbite.com</div> -->
-                    </div>
-                </th>
-                <td class="px-6 py-4">
-                    <div class="flex items-center">
-                        <div class="h-2.5 w-2.5 rounded-full bg-red-500 me-2"></div> Audit Sent
-                    </div>
-                </td>
-                <td class="px-6 py-4">
-                    demo@gmail.com
-                </td>
-                <td class="px-6 py-4">
-                   +911234567890
-                </td>
-               
-                
-            </tr>
-        </tbody>
-    </table>
-</div>
 
+        <div id="lead-table" class="pt-6">
+            <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+                <table class="w-full text-sm text-left text-gray-500">
+                    <thead class="text-xs text-gray-700 bg-gray-50">
+                        <tr>
+                            <th scope="col" class="p-4">
+                                <div class="flex items-center">
+                                    <input id="checkbox-all-search" type="checkbox"
+                                        class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500">
+                                    <label for="checkbox-all-search" class="sr-only">checkbox</label>
+                                </div>
+                            </th>
+                            <th scope="col" class="px-6 py-3">Name</th>
+                            <th scope="col" class="px-6 py-3">Status</th>
+                            <th scope="col" class="px-6 py-3">Email</th>
+                            <th scope="col" class="px-6 py-3">Phone Number</th>
+                            <th scope="col" class=" px-6 py-3"> <div class="flex items-center justify-between">
+                                <span>Approach</span>
+                                <span>
+                                    <svg width="10" height="16" viewBox="0 0 10 16"
+                                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M8 9H2L5 12L8 9Z" fill="#98A2B3" />
+                                        <path d="M8 7H2L5 4L8 7Z" fill="#98A2B3" />
+                                    </svg>
+                                </span>
+                            </div>
+                            </th>
+                            <th scope="col" class="px-6 py-3"> <div class="flex items-center justify-between">
+                                <span>Last Follow-up</span>
+                                <span>
+                                    <svg width="10" height="16" viewBox="0 0 10 16"
+                                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M8 9H2L5 12L8 9Z" fill="#98A2B3" />
+                                        <path d="M8 7H2L5 4L8 7Z" fill="#98A2B3" />
+                                    </svg>
+                                </span>
+                            </div>
+                            </th>
+                            <th scope="col" class="  px-6 py-3">
+                                <div class="flex items-center justify-between">
+                                    <span>Next Follow-up</span>
+                                    <span>
+                                        <svg width="10" height="16" viewBox="0 0 10 16"
+                                            fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M8 9H2L5 12L8 9Z" fill="#98A2B3" />
+                                            <path d="M8 7H2L5 4L8 7Z" fill="#98A2B3" />
+                                        </svg>
+                                    </span>
+                                </div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="bg-white border-b hover:bg-gray-50">
+                            <td class="w-4 p-4">
+                                <div class="flex items-center">
+                                    <input id="checkbox-table-search-1" type="checkbox"
+                                        class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500">
+                                    <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
+                                </div>
+                            </td>
+                            <th scope="row" class="flex items-center px-6 py-4 text-gray-900">
+                                <div class="ps-3">
+                                    <div class="text-base font-semibold">Isanur Sardar</div>
+                                </div>
+                            </th>
+                            <td class="px-6 py-4">
+                                <div
+                                    class="flex items-center justify-center bg-green-100 rounded text-green-600 font-semibold">
+                                    Confirmed</div>
+                            </td>
+                            <td class="px-6 py-4">demo@gmail.com</td>
+                            <td class="px-6 py-4">+911234567890</td>
+                            <td class="px-6 py-4">2</td>
+                            <td class="px-6 py-4">5 Days</td>
+                            <td class="px-6 py-4">Thu, May 8</td>
+                        </tr>
+                        <tr class="bg-white border-b hover:bg-gray-50">
+                            <td class="w-4 p-4">
+                                <div class="flex items-center">
+                                    <input id="checkbox-table-search-2" type="checkbox"
+                                        class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500">
+                                    <label for="checkbox-table-search-2" class="sr-only">checkbox</label>
+                                </div>
+                            </td>
+                            <th scope="row" class="flex items-center px-6 py-4 text-gray-900">
+                                <div class="ps-3">
+                                    <div class="text-base font-semibold">Mrinal Das</div>
+                                </div>
+                            </th>
+                            <td class="px-6 py-4">
+                                <div
+                                    class="flex items-center justify-center bg-green-100 rounded text-green-600 font-semibold">
+                                    Confirmed</div>
+                            </td>
+                            <td class="px-6 py-4">demo@gmail.com</td>
+                            <td class="px-6 py-4">+911234567890</td>
+                            <td class="px-6 py-4">2</td>
+                            <td class="px-6 py-4">3 Days</td>
+                            <td class="px-6 py-4">Wed, Mar 13</td>
+                        </tr>
+                        <tr class="bg-white border-b hover:bg-gray-50">
+                            <td class="w-4 p-4">
+                                <div class="flex items-center">
+                                    <input id="checkbox-table-search-3" type="checkbox"
+                                        class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500">
+                                    <label for="checkbox-table-search-3" class="sr-only">checkbox</label>
+                                </div>
+                            </td>
+                            <th scope="row" class="flex items-center px-6 py-4 text-gray-900">
+                                <div class="ps-3">
+                                    <div class="text-base font-semibold">Sumit Kumar</div>
+                                </div>
+                            </th>
+                            <td class="px-6 py-4">
+                                <div
+                                    class="flex items-center justify-center bg-green-100 rounded text-green-600 font-semibold">
+                                    Confirmed</div>
+                            </td>
+                            <td class="px-6 py-4">demo@gmail.com</td>
+                            <td class="px-6 py-4">+911234567890</td>
+                            <td class="px-6 py-4">1</td>
+                            <td class="px-6 py-4">6 Days</td>
+                            <td class="px-6 py-4">Today</td>
+                        </tr>
+                        <tr class="bg-white border-b hover:bg-gray-50">
+                            <td class="w-4 p-4">
+                                <div class="flex items-center">
+                                    <input id="checkbox-table-search-4" type="checkbox"
+                                        class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500">
+                                    <label for="checkbox-table-search-4" class="sr-only">checkbox</label>
+                                </div>
+                            </td>
+                            <th scope="row" class="flex items-center px-6 py-4 text-gray-900">
+                                <div class="ps-3">
+                                    <div class="text-base font-semibold">Anushree Das</div>
+                                </div>
+                            </th>
+                            <td class="px-6 py-4">
+                                <div
+                                    class="flex items-center justify-center bg-green-100 rounded text-green-600 font-semibold">
+                                    Confirmed</div>
+                            </td>
+                            <td class="px-6 py-4">demo@gmail.com</td>
+                            <td class="px-6 py-4">+911234567890</td>
+                            <td class="px-6 py-4">3</td>
+                            <td class="px-6 py-4">7 Days</td>
+                            <td class="px-6 py-4">Sat, Jun 1</td>
+                        </tr>
+                        <tr class="bg-white hover:bg-gray-50">
+                            <td class="w-4 p-4">
+                                <div class="flex items-center">
+                                    <input id="checkbox-table-search-5" type="checkbox"
+                                        class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500">
+                                    <label for="checkbox-table-search-5" class="sr-only">checkbox</label>
+                                </div>
+                            </td>
+                            <th scope="row" class="flex items-center px-6 py-4 text-gray-900">
+                                <div class="ps-3">
+                                    <div class="text-base font-semibold">Atanu Saha</div>
+                                </div>
+                            </th>
+                            <td class="px-6 py-4">
+                                <div
+                                    class="flex items-center justify-center bg-green-100 rounded text-green-600 font-semibold">
+                                    Confirmed</div>
+                            </td>
+                            <td class="px-6 py-4">demo@gmail.com</td>
+                            <td class="px-6 py-4">+911234567890</td>
+                            <td class="px-6 py-4">2</td>
+                            <td class="px-6 py-4">5 Days</td>
+                            <td class="px-6 py-4">Thu, May 8</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div id="lead-form" class="pt-4 hidden">
+            <div class="flex flex-col gap-4">
+
+                <div class="flex flex-col gap-2 w-1/2">
+                    <label for="fullName" class="text-sm font-medium text-gray-900">Name</label>
+                    <input type="text" id="fullName" name="fullName" class="p-2 border border-gray-300 rounded">
+                </div>
+                <div class="flex flex-col gap-2 w-1/2">
+                    <label for="status" class="text-sm font-medium text-gray-900">Status</label>
+                    <input type="text" id="status" name="status" class="p-2 border border-gray-300 rounded">
+                </div>
+
+
+                <div class="flex flex-col gap-2 w-1/2">
+                    <label for="email" class="text-sm font-medium text-gray-900">Email</label>
+                    <input type="email" id="email" name="email" class="p-2 border border-gray-300 rounded">
+                </div>
+                <div class="flex flex-row">
+                    <div class="flex flex-col gap-2 w-1/2">
+                        <label for="phone" class="text-sm font-medium text-gray-900">Phone Number</label>
+                        <div class="flex flex-row">
+                            <input type="text" id="phone" name="phone" class="p-2 border border-gray-300 rounded">
+                            <div id="additionalPhones" class="flex flex-col gap-2 w-1/2"></div>
+                        </div>
+                    </div>
+                    <button type="button" id="addPhoneBtn"
+                        class=" bg-blue-500 w-10 h-10 rounded-full text-white text-2xl text-center items-center rounded pb-1">+</button>
+
+                </div>
+
+                <div class="flex flex-col gap-2 w-1/2">
+                    <label for="approach" class="text-sm font-medium text-gray-900">URL</label>
+                    <input type="text" id="url" name="url" class="p-2 border border-gray-300 rounded">
+                </div>
+                <div class="flex flex-col gap-2 w-1/2">
+                    <label for="lastFollowUp" class="text-sm font-medium text-gray-900">Message</label>
+                    <input type="text" id="lastFollowUp" name="lastFollowUp" class="p-2 border border-gray-300 rounded">
+                </div>
+
+                <div class="flex flex-row gap-4">
+                    <div class="flex flex-col gap-2 w-1/2">
+                        <label for="nextFollowUp" class="text-sm font-medium text-gray-900">Intern Name</label>
+                        <input type="text" id="nextFollowUp" name="nextFollowUp"
+                            class="p-2 border border-gray-300 rounded">
+                    </div>
+                </div>
+                <div class="flex flex-row gap-4">
+                    <div class="flex flex-col gap-2 w-1/2">
+                        <label for="nextFollowUp" class="text-sm font-medium text-gray-900">Workflow Status</label>
+                        <select id="nextFollowUp" name="nextFollowUp" class="p-2 border border-gray-300 rounded">
+                            <option value="intern1">Confirmed</option>
+                            <option value="intern2">Audit Sent</option>
+                            <option value="intern3">Proposal Sent</option>
+
+                        </select>
+                    </div>
+                </div>
+                <div class="flex flex-row gap-4">
+                    <div class="flex flex-col gap-2 w-1/2">
+                        <label for="nextFollowUp" class="text-sm font-medium text-gray-900">Industries</label>
+                        <select id="nextFollowUp" name="nextFollowUp" class="p-2 border border-gray-300 rounded">
+                            <option value="intern1">Information Technology</option>
+                            <option value="intern2">Healthcare</option>
+                            <option value="intern3">Education</option>
+
+                        </select>
+                    </div>
+                </div>
+                <div class="flex flex-row gap-4">
+                    <div class="flex flex-col gap-2 w-1/2">
+                        <label for="nextFollowUp" class="text-sm font-medium text-gray-900">Type</label>
+                        <select id="nextFollowUp" name="nextFollowUp" class="p-2 border border-gray-300 rounded">
+                            <option value="intern1">Marketing</option>
+                            <option value="intern2">Development</option>
+                            <option value="intern3">UI/UX Audit</option>
+
+                        </select>
+                    </div>
+                </div>
+
+                <button id="submit-lead" class="self-end bg-purple-600 text-white py-2 px-4 rounded">Submit</button>
+            </div>
         </div>
     </div>
+
+    <script>
+        // document.getElementById('add-lead-button').addEventListener('click', function () {
+        //     document.getElementById('lead-form').classList.toggle('hidden');
+        //     document.getElementById('lead-table').classList.toggle('hidden');
+        // });
+
+        // document.getElementById('submit-lead').addEventListener('click', function () {
+        //     event.preventDefault();
+        //     document.getElementById('lead-form').classList.add('hidden');
+        //     document.getElementById('lead-table').classList.remove('hidden');
+        //     document.getElementById('lead-form').reset();
+        // });
+
+        // document.getElementById('addPhoneBtn').addEventListener('click', function () {
+        //     const additionalPhones = document.getElementById('additionalPhones');
+        //     const newPhoneDiv = document.createElement('div');
+        //     newPhoneDiv.classList.add('extra-phone');
+
+        //     const newLabel = document.createElement('label');
+        //     newLabel.classList.add('text-sm', 'font-medium', 'text-gray-900');
+        //     newLabel.textContent = 'Additional Phone Number';
+
+        //     const newInput = document.createElement('input');
+        //     newInput.type = 'text';
+        //     newInput.name = 'phone';
+        //     newInput.classList.add('p-2', 'border', 'border-gray-300', 'rounded', 'mt-1');
+
+        //     newPhoneDiv.appendChild(newLabel);
+        //     newPhoneDiv.appendChild(newInput);
+
+        //     additionalPhones.appendChild(newPhoneDiv);
+        // });
+    </script>
 </body>
+
 </html>
