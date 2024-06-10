@@ -17,6 +17,7 @@
         body {
             font-family: 'Inter', sans-serif;
         }
+        
     </style>
 </head>
 
@@ -57,8 +58,8 @@
             </div>
         </div>
 
-        <div id="lead-table" class="pt-6">
-            <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+        <div id="lead-table" class="pt-6 ">
+            <div class="relative overflow-x-auto shadow-md sm:rounded-lg py-2">
                 <table class="w-full text-sm text-left text-gray-500">
                     <thead class="text-xs text-gray-700 bg-gray-50">
                         <tr>
@@ -69,11 +70,11 @@
                                     <label for="checkbox-all-search" class="sr-only">checkbox</label>
                                 </div>
                             </th>
-                            <th scope="col" class="px-6 py-3">Name</th>
-                            <th scope="col" class="px-6 py-3">Status</th>
-                            <th scope="col" class="px-6 py-3">Email</th>
-                            <th scope="col" class="px-6 py-3">Phone Number</th>
-                            <th scope="col" class=" px-6 py-3"> <div class="flex items-center justify-between">
+                            <th scope="col" class="px-4 py-3">Full Name</th>
+                            <th scope="col" class="px-4 py-3">Status</th>
+                            <th scope="col" class="px-4 py-3">Email</th>
+                            <th scope="col" class="px-4 py-3">Phone Number</th>
+                            <th scope="col" class=" px-4 py-3"> <div class="flex items-center justify-between">
                                 <span>Approach</span>
                                 <span>
                                     <svg width="10" height="16" viewBox="0 0 10 16"
@@ -84,7 +85,7 @@
                                 </span>
                             </div>
                             </th>
-                            <th scope="col" class="px-6 py-3"> <div class="flex items-center justify-between">
+                            <th scope="col" class="px-4 py-3"> <div class="flex items-center justify-between">
                                 <span>Last Follow-up</span>
                                 <span>
                                     <svg width="10" height="16" viewBox="0 0 10 16"
@@ -95,7 +96,7 @@
                                 </span>
                             </div>
                             </th>
-                            <th scope="col" class="  px-6 py-3">
+                            <th scope="col" class="  px-4 py-3">
                                 <div class="flex items-center justify-between">
                                     <span>Next Follow-up</span>
                                     <span>
@@ -107,6 +108,10 @@
                                     </span>
                                 </div>
                             </th>
+                            <th scope="col" class="px-4 py-3">
+                                
+                            </th>
+
                         </tr>
                     </thead>
                     <tbody>
@@ -118,21 +123,28 @@
                                     <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
                                 </div>
                             </td>
-                            <th scope="row" class="flex items-center px-6 py-4 text-gray-900">
-                                <div class="ps-3">
-                                    <div class="text-base font-semibold">Isanur Sardar</div>
+                            <th scope="row" class="flex items-center px-4 py-4  text-gray-900">
+                                <div class="ps-3 w-full">
+                                    <div class="text-sm  w-full gap-4 font-semibold flex justify-between">Isanur Sardar <img src="./assets/banao.png" alt=""></div>
                                 </div>
                             </th>
-                            <td class="px-6 py-4">
+                            <td class="px-4 py-4">
                                 <div
-                                    class="flex items-center justify-center bg-green-100 rounded text-green-600 font-semibold">
+                                    class="flex items-center justify-center text-xs bg-green-100 rounded text-green-600 font-semibold">
                                     Confirmed</div>
                             </td>
-                            <td class="px-6 py-4">demo@gmail.com</td>
-                            <td class="px-6 py-4">+911234567890</td>
-                            <td class="px-6 py-4">2</td>
-                            <td class="px-6 py-4">5 Days</td>
-                            <td class="px-6 py-4">Thu, May 8</td>
+                            <td class="px-4 py-4">demo@gmail.com</td>
+                            <td class="px-4 py-4">+911234567890</td>
+                            <td class="px-4 py-4">2</td>
+                            <td class="px-4 py-4">5 Days</td>
+                            <td class="px-4 py-4 relative">
+                                Thu, May 8
+                                <div class="hidden absolute top-full left-10 mt-2 bg-gray-600 p-2 shadow-lg border border-gray-200 rounded-lg popup-info z-10">
+                                    <p class="text-xs text-white">Created at: 2024-05-01</p>
+                                    <p class="text-xs text-white">Updated at: 2024-06-01</p>
+                                </div>
+                            </td>
+                            <td class="px-1 py-4"><img src="./assets/vb.png" alt="assigned user"></td>
                         </tr>
                         <tr class="bg-white border-b hover:bg-gray-50">
                             <td class="w-4 p-4">
@@ -142,21 +154,28 @@
                                     <label for="checkbox-table-search-2" class="sr-only">checkbox</label>
                                 </div>
                             </td>
-                            <th scope="row" class="flex items-center px-6 py-4 text-gray-900">
-                                <div class="ps-3">
-                                    <div class="text-base font-semibold">Mrinal Das</div>
+                            <th scope="row" class="flex items-center px-4 py-4 text-gray-900">
+                                <div class="ps-3 w-full">
+                                    <div class="text-sm w-full font-semibold gap-4 flex justify-between ">Mrinal Das <img src="./assets/banao.png" alt=""></div>
                                 </div>
                             </th>
-                            <td class="px-6 py-4">
+                            <td class="px-4 py-4">
                                 <div
-                                    class="flex items-center justify-center bg-green-100 rounded text-green-600 font-semibold">
+                                    class="flex items-center justify-center text-xs bg-green-100 rounded text-green-600 font-semibold">
                                     Confirmed</div>
                             </td>
-                            <td class="px-6 py-4">demo@gmail.com</td>
-                            <td class="px-6 py-4">+911234567890</td>
-                            <td class="px-6 py-4">2</td>
-                            <td class="px-6 py-4">3 Days</td>
-                            <td class="px-6 py-4">Wed, Mar 13</td>
+                            <td class="px-4 py-4">demo@gmail.com</td>
+                            <td class="px-4 py-4">+911234567890</td>
+                            <td class="px-4 py-4">2</td>
+                            <td class="px-4 py-4">3 Days</td>
+                            <td class="px-4 py-4 relative">Wed, Mar 13
+                                <div class="hidden absolute top-full left-10 mt-2 bg-gray-600 p-2 shadow-lg border border-gray-200 rounded-lg popup-info">
+                                    <p class="text-xs text-white">Created at: 2024-04-01</p>
+                                    <p class="text-xs text-white">Updated at: 2024-06-11</p>
+                                </div>
+                            </td>
+                            <td class="px-1 py-4"><img src="./assets/sb.png" alt="assigned user"></td>
+
                         </tr>
                         <tr class="bg-white border-b hover:bg-gray-50">
                             <td class="w-4 p-4">
@@ -166,21 +185,28 @@
                                     <label for="checkbox-table-search-3" class="sr-only">checkbox</label>
                                 </div>
                             </td>
-                            <th scope="row" class="flex items-center px-6 py-4 text-gray-900">
-                                <div class="ps-3">
-                                    <div class="text-base font-semibold">Sumit Kumar</div>
+                            <th scope="row" class="flex items-center px-4 py-4 text-gray-900">
+                                <div class="ps-3 w-full">
+                                    <div class="text-sm w-full font-semibold flex justify-between">Sumit Kumar <img src="./assets/Linkedin.png" alt=""></div>
                                 </div>
                             </th>
-                            <td class="px-6 py-4">
+                            <td class="px-4 py-4">
                                 <div
-                                    class="flex items-center justify-center bg-green-100 rounded text-green-600 font-semibold">
+                                    class="flex items-center justify-center bg-green-100 text-xs rounded text-green-600 font-semibold">
                                     Confirmed</div>
                             </td>
-                            <td class="px-6 py-4">demo@gmail.com</td>
-                            <td class="px-6 py-4">+911234567890</td>
-                            <td class="px-6 py-4">1</td>
-                            <td class="px-6 py-4">6 Days</td>
-                            <td class="px-6 py-4">Today</td>
+                            <td class="px-4 py-4">demo@gmail.com</td>
+                            <td class="px-4 py-4">+911234567890</td>
+                            <td class="px-4 py-4">1</td>
+                            <td class="px-4 py-4">6 Days</td>
+                            <td class="px-4 py-4 relative">Today
+                                <div class="hidden absolute top-full left-10 mt-2 bg-gray-600 p-2 shadow-lg border border-gray-200 rounded-lg popup-info">
+                                    <p class="text-xs text-white">Created at: 2024-05-01</p>
+                                    <p class="text-xs text-white">Updated at: 2024-06-01</p>
+                                </div>
+                            </td>
+                            <td class="px-1 py-4"><img src="./assets/vb.png" alt="assigned user"></td>
+
                         </tr>
                         <tr class="bg-white border-b hover:bg-gray-50">
                             <td class="w-4 p-4">
@@ -190,21 +216,28 @@
                                     <label for="checkbox-table-search-4" class="sr-only">checkbox</label>
                                 </div>
                             </td>
-                            <th scope="row" class="flex items-center px-6 py-4 text-gray-900">
-                                <div class="ps-3">
-                                    <div class="text-base font-semibold">Anushree Das</div>
+                            <th scope="row" class="flex items-center px-4 py-4 text-gray-900">
+                                <div class="ps-3 w-full">
+                                    <div class="text-sm w-full font-semibold flex justify-between">Anushree Das <img src="./assets/instagram.png" alt=""></div>
                                 </div>
                             </th>
-                            <td class="px-6 py-4">
+                            <td class="px-4 py-4">
                                 <div
-                                    class="flex items-center justify-center bg-green-100 rounded text-green-600 font-semibold">
+                                    class="flex items-center justify-center bg-green-100 rounded  text-xs text-green-600 font-semibold">
                                     Confirmed</div>
                             </td>
-                            <td class="px-6 py-4">demo@gmail.com</td>
-                            <td class="px-6 py-4">+911234567890</td>
-                            <td class="px-6 py-4">3</td>
-                            <td class="px-6 py-4">7 Days</td>
-                            <td class="px-6 py-4">Sat, Jun 1</td>
+                            <td class="px-4 py-4">demo@gmail.com</td>
+                            <td class="px-4 py-4">+911234567890</td>
+                            <td class="px-4 py-4">3</td>
+                            <td class="px-4 py-4">7 Days</td>
+                            <td class="px-4 py-4 relative">Sat, Jun 1
+                                <div class="hidden absolute top-full left-10 mt-2 bg-gray-600 p-2 shadow-lg border border-gray-200 rounded-lg popup-info">
+                                    <p class="text-xs text-white">Created at: 2024-02-21</p>
+                                    <p class="text-xs text-white">Updated at: 2024-06-04</p>
+                                </div>
+                            </td>
+                            <td class="px-1 py-4"><img src="./assets/vj.png" alt="assigned user"></td>
+
                         </tr>
                         <tr class="bg-white hover:bg-gray-50">
                             <td class="w-4 p-4">
@@ -214,21 +247,28 @@
                                     <label for="checkbox-table-search-5" class="sr-only">checkbox</label>
                                 </div>
                             </td>
-                            <th scope="row" class="flex items-center px-6 py-4 text-gray-900">
-                                <div class="ps-3">
-                                    <div class="text-base font-semibold">Atanu Saha</div>
+                            <th scope="row" class="flex items-center px-4 py-4 text-gray-900">
+                                <div class="ps-3 w-full">
+                                    <div class="text-sm w-full font-semibold flex justify-between">Atanu Saha <img src="./assets/banao.png" alt=""></div>
                                 </div>
                             </th>
-                            <td class="px-6 py-4">
+                            <td class="px-4 py-4">
                                 <div
-                                    class="flex items-center justify-center bg-green-100 rounded text-green-600 font-semibold">
+                                    class="flex items-center justify-center bg-green-100 rounded text-xs text-green-600 font-semibold">
                                     Confirmed</div>
                             </td>
-                            <td class="px-6 py-4">demo@gmail.com</td>
-                            <td class="px-6 py-4">+911234567890</td>
-                            <td class="px-6 py-4">2</td>
-                            <td class="px-6 py-4">5 Days</td>
-                            <td class="px-6 py-4">Thu, May 8</td>
+                            <td class="px-4 py-4">demo@gmail.com</td>
+                            <td class="px-4 py-4">+911234567890</td>
+                            <td class="px-4 py-4">2</td>
+                            <td class="px-4 py-4">5 Days</td>
+                            <td class="px-4 py-4 relative">Thu, May 8
+                                <div class="hidden absolute bottom-full left-10 mt-2 bg-gray-600 p-2 shadow-lg border border-gray-200 rounded-lg popup-info">
+                                    <p class="text-xs text-white">Created at: 2024-02-01</p>
+                                    <p class="text-xs text-white">Updated at: 2024-07-01</p>
+                                </div>
+                            </td>
+                            <td class="px-1 py-4"><img src="./assets/sb.png" alt="assigned user"></td>
+
                         </tr>
                     </tbody>
                 </table>
@@ -321,6 +361,7 @@
     </div>
 
     <script>
+         document.addEventListener('DOMContentLoaded', () => {
         // document.getElementById('add-lead-button').addEventListener('click', function () {
         //     document.getElementById('lead-form').classList.toggle('hidden');
         //     document.getElementById('lead-table').classList.toggle('hidden');
@@ -352,6 +393,40 @@
 
         //     additionalPhones.appendChild(newPhoneDiv);
         // });
+
+//         document.addEventListener('DOMContentLoaded', function () {
+//     const rows = document.querySelectorAll('tbody tr');
+
+//     rows.forEach(row => {
+//         const followUpCell = row.querySelector('td:nth-child(8)');
+//         const popup = followUpCell.querySelector('.popup-info');
+
+//         followUpCell.addEventListener('mouseenter', () => {
+//             popup.classList.remove('hidden');
+//         });
+
+//         followUpCell.addEventListener('mouseleave', () => {
+//             popup.classList.add('hidden');
+//         });
+//     });
+// });
+
+const rows = document.querySelectorAll('tbody tr');
+
+            rows.forEach(row => {
+                const followUpCell = row.querySelector('td:nth-child(8)');
+                const popup = followUpCell.querySelector('.popup-info');
+
+                followUpCell.addEventListener('mouseenter', () => {
+                    popup.style.display = 'block';
+                });
+
+                followUpCell.addEventListener('mouseleave', () => {
+                    popup.style.display = 'none';
+                });
+            });
+         });
+
     </script>
 </body>
 

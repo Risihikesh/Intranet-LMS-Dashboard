@@ -19,6 +19,25 @@
             font-family: 'Inter', sans-serif;
         }
 
+        .popup-info {
+            position: absolute;
+            background-color: white;
+            padding: 0.5rem;
+            border: 1px solid #ccc;
+            border-radius: 0.25rem;
+            box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.1);
+            z-index: 10;
+            width: 217px; /* Set the width of the popup div */
+            /* left: 50%; */
+            transform: translateX(-50%);
+        }
+        .relative {
+            position: relative;
+        }
+        .hidden {
+            display: none;
+        }
+
         /*
         .flex {
             display: flex;
@@ -94,8 +113,8 @@
     <div class="flex flex-row divide-x">
         <!-- Sidebar -->
         <div id="sidebar" class="flex px-4 flex-col w-2/12 mt-14"></div>
-
-        <div class="  w-10/12 px-10  mt-14">
+        <!-- DASHBOARDS -->
+        <div class="  w-10/12 px-6  mt-14">
             <div id="dashboard"></div>
         </div>
     </div>
@@ -114,19 +133,19 @@
 
 
 
-            fetch('leadManagement.html')
+        fetch('leadManagement.html')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('dashboard').innerHTML = data;
-                
-                
+
+
                 document.getElementById('add-lead-button').addEventListener('click', function () {
                     document.getElementById('lead-form').classList.toggle('hidden');
                     document.getElementById('lead-table').classList.toggle('hidden');
                 });
 
                 document.getElementById('submit-lead').addEventListener('click', function () {
-                    event.preventDefault(); 
+                    event.preventDefault();
                     document.getElementById('lead-form').classList.add('hidden');
                     document.getElementById('lead-table').classList.remove('hidden');
 
@@ -134,28 +153,41 @@
                 });
 
                 document.getElementById('addPhoneBtn').addEventListener('click', function () {
-            const additionalPhones = document.getElementById('additionalPhones');
-            const newPhoneDiv = document.createElement('div');
-            newPhoneDiv.classList.add('extra-phone');
+                    const additionalPhones = document.getElementById('additionalPhones');
+                    const newPhoneDiv = document.createElement('div');
+                    newPhoneDiv.classList.add('extra-phone');
 
-            const newLabel = document.createElement('label');
-            newLabel.classList.add('text-sm', 'font-medium', 'text-gray-900');
-            // newLabel.textContent = 'Additional Phone Number';
+                    const newLabel = document.createElement('label');
+                    newLabel.classList.add('text-sm', 'font-medium', 'text-gray-900');
+                    // newLabel.textContent = 'Additional Phone Number';
 
-            const newInput = document.createElement('input');
-            newInput.type = 'text';
-            newInput.name = 'phone';
-            newInput.classList.add('p-2', 'border', 'border-gray-300', 'rounded', 'mt-1');
+                    const newInput = document.createElement('input');
+                    newInput.type = 'text';
+                    newInput.name = 'phone';
+                    newInput.classList.add('p-2', 'border', 'border-gray-300', 'rounded', 'mt-1');
 
-            // newPhoneDiv.appendChild(newLabel);
-            newPhoneDiv.appendChild(newInput);
+                    // newPhoneDiv.appendChild(newLabel);
+                    newPhoneDiv.appendChild(newInput);
 
-            additionalPhones.appendChild(newPhoneDiv);
-        });
+                    additionalPhones.appendChild(newPhoneDiv);
+                });
+
+                // on hover next follow-up
+                const rows = document.querySelectorAll('tbody tr');
+                rows.forEach(row => {
+                    const followUpCell = row.querySelector('td:nth-child(8)');
+                    const popup = followUpCell.querySelector('.popup-info');
+                    followUpCell.addEventListener('mouseenter', () => {
+                        popup.classList.remove('hidden');
+                    });
+                    followUpCell.addEventListener('mouseleave', () => {
+                        popup.classList.add('hidden');
+                    });
+                });
             });
 
-            
-            
+
+
     </script>
 </body>
 
