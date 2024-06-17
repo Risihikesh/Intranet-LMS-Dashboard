@@ -296,8 +296,10 @@
             <div id="popup-header-name" class="font-medium text-lg leading-7" style="color: rgba(16, 24, 40, 1);"></div>
             <button id="close-popup" class=" absolute top-0 right-3 text-4xl hover:text-gray-700">&times;</button>
             <div class=" flex flex-col gap-1">
-                <h2 class="text-sm font-semibold pt-2" style="color: rgba(16, 24, 40, 1);">Lead Details</h2>
-                <div class="pt-4 flex flex-col gap-2">
+                <!-- <h2 class="text-sm font-semibold pt-2" style="color: rgba(16, 24, 40, 1);">Lead Details</h2> -->
+                <div id="lead-details" class=" flex flex-col gap-2">
+                    <h2 class="text-sm font-semibold pt-2" style="color: rgba(16, 24, 40, 1);">Lead Details</h2>
+
                     <div class="font-medium text-sm flex flex-col" style="color: rgba(52, 64, 84, 1);">Full Name
                         <span id="popup-name" class="text-sm font-normal" style="color: rgba(71, 84, 103, 1);"></span>
                     </div>
@@ -311,45 +313,79 @@
                         <span id="popup-url" class="text-sm font-normal" style="color: rgba(71, 84, 103, 1);"></span>
                     </div>
                     <div class="font-medium text-sm flex flex-col" style="color: rgba(52, 64, 84, 1);">Message
-                        <span id="popup-message" class="text-sm font-normal" style="color: rgba(71, 84, 103, 1);"></span>
+                        <span id="popup-message" class="text-sm font-normal"
+                            style="color: rgba(71, 84, 103, 1);"></span>
                     </div>
                     <div class="font-medium text-sm flex flex-col" style="color: rgba(52, 64, 84, 1);">Next Follow-Up
-                        <div class=" flex flex-row justify-between font-normal rounded border px-1 w-1/2" style="color: rgba(71, 84, 103, 1);"> 
-                           <span id="popup-follow-up" ></span>
-                           <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M4.995 5.85742H19.005C20.107 5.85742 21 6.75242 21 7.85142V19.8634C21 20.1254 20.9484 20.3847 20.8481 20.6267C20.7478 20.8687 20.6009 21.0886 20.4156 21.2737C20.2304 21.4589 20.0104 21.6058 19.7684 21.7059C19.5263 21.8061 19.2669 21.8576 19.005 21.8574H4.995C4.46607 21.8574 3.95878 21.6474 3.58468 21.2735C3.21057 20.8995 3.00027 20.3924 3 19.8634V7.85142C3 6.75042 3.892 5.85742 4.995 5.85742ZM5 9.85742V18.8574C5 19.1226 5.10536 19.377 5.29289 19.5645C5.48043 19.7521 5.73478 19.8574 6 19.8574H18C18.2652 19.8574 18.5196 19.7521 18.7071 19.5645C18.8946 19.377 19 19.1226 19 18.8574V9.85742H5ZM6 4.85742C6 4.59221 6.10536 4.33785 6.29289 4.15032C6.48043 3.96278 6.73478 3.85742 7 3.85742C7.26522 3.85742 7.51957 3.96278 7.70711 4.15032C7.89464 4.33785 8 4.59221 8 4.85742V5.85742H6V4.85742ZM16 4.85742C16 4.59221 16.1054 4.33785 16.2929 4.15032C16.4804 3.96278 16.7348 3.85742 17 3.85742C17.2652 3.85742 17.5196 3.96278 17.7071 4.15032C17.8946 4.33785 18 4.59221 18 4.85742V5.85742H16V4.85742ZM7 13.8574V11.8564H9V13.8574H7ZM15 13.8574V11.8564H17V13.8574H15ZM11 13.8574V11.8564H13.001V13.8574H11ZM7 17.8574V15.8574H9V17.8574H7ZM11 17.8574V15.8574H13.001V17.8574H11ZM15 17.8574V15.8574H17V17.8574H15Z" fill="#44546F"/>
+                        <div class=" flex flex-row justify-between font-normal rounded border px-1 w-1/2"
+                            style="color: rgba(71, 84, 103, 1);">
+                            <span id="popup-follow-up"></span>
+                            <svg width="24" height="25" viewBox="0 0 24 25" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M4.995 5.85742H19.005C20.107 5.85742 21 6.75242 21 7.85142V19.8634C21 20.1254 20.9484 20.3847 20.8481 20.6267C20.7478 20.8687 20.6009 21.0886 20.4156 21.2737C20.2304 21.4589 20.0104 21.6058 19.7684 21.7059C19.5263 21.8061 19.2669 21.8576 19.005 21.8574H4.995C4.46607 21.8574 3.95878 21.6474 3.58468 21.2735C3.21057 20.8995 3.00027 20.3924 3 19.8634V7.85142C3 6.75042 3.892 5.85742 4.995 5.85742ZM5 9.85742V18.8574C5 19.1226 5.10536 19.377 5.29289 19.5645C5.48043 19.7521 5.73478 19.8574 6 19.8574H18C18.2652 19.8574 18.5196 19.7521 18.7071 19.5645C18.8946 19.377 19 19.1226 19 18.8574V9.85742H5ZM6 4.85742C6 4.59221 6.10536 4.33785 6.29289 4.15032C6.48043 3.96278 6.73478 3.85742 7 3.85742C7.26522 3.85742 7.51957 3.96278 7.70711 4.15032C7.89464 4.33785 8 4.59221 8 4.85742V5.85742H6V4.85742ZM16 4.85742C16 4.59221 16.1054 4.33785 16.2929 4.15032C16.4804 3.96278 16.7348 3.85742 17 3.85742C17.2652 3.85742 17.5196 3.96278 17.7071 4.15032C17.8946 4.33785 18 4.59221 18 4.85742V5.85742H16V4.85742ZM7 13.8574V11.8564H9V13.8574H7ZM15 13.8574V11.8564H17V13.8574H15ZM11 13.8574V11.8564H13.001V13.8574H11ZM7 17.8574V15.8574H9V17.8574H7ZM11 17.8574V15.8574H13.001V17.8574H11ZM15 17.8574V15.8574H17V17.8574H15Z"
+                                    fill="#44546F" />
                             </svg>
-                            </div> 
+                        </div>
                     </div>
                 </div>
-                <div class="flex justify-center items-center">
-                    <button class="text-purple-900 font-semibold text-sm">See more</button>
+                <div class="flex justify-center items-center py-2">
+                    <button id="up-arrow"
+                        class="text-purple-900 font-semibold text-sm rotate-90 rounded-full bg-gray-100">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="24" height="24" transform="matrix(-1 0 0 -1 24 24)" fill="white"
+                                fill-opacity="0.01" />
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M9.69801 13.706C9.60609 13.7992 9.49657 13.8732 9.3758 13.9237C9.25503 13.9742 9.12542 14.0002 8.99451 14.0002C8.8636 14.0002 8.73399 13.9742 8.61322 13.9237C8.49245 13.8732 8.38293 13.7992 8.29101 13.706C8.10414 13.5169 7.99934 13.262 7.99934 12.9965C7.99934 12.7309 8.10414 12.476 8.29101 12.287L11.221 9.32195C11.3223 9.21976 11.4429 9.13864 11.5758 9.08329C11.7086 9.02793 11.8511 8.99943 11.995 8.99943C12.1389 8.99943 12.2814 9.02793 12.4143 9.08329C12.5471 9.13864 12.6677 9.21976 12.769 9.32195L15.709 12.277C15.8956 12.466 16.0002 12.7211 16.0002 12.987C16.0002 13.2528 15.8956 13.5079 15.709 13.697C15.6171 13.7902 15.5076 13.8642 15.3868 13.9147C15.266 13.9652 15.1364 13.9912 15.0055 13.9912C14.8746 13.9912 14.745 13.9652 14.6242 13.9147C14.5035 13.8642 14.3939 13.7902 14.302 13.697L11.995 11.379L9.69801 13.706Z"
+                                fill="#6941C6" />
+                        </svg>
+                    </button>
+                    <button id="down-arrow"
+                        class=" hidden text-purple-900 font-semibold text-sm rotate-90 rounded-full bg-gray-100">
+                        <svg width="34" height="34" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="24" height="24" transform="matrix(-1 0 0 -1 24 24)" fill="white"
+                                fill-opacity="0.01" />
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M14.302 10.294C14.3939 10.201 14.5035 10.1268 14.6242 10.0763C14.745 10.0258 14.8746 9.99982 15.0055 9.99982C15.1364 9.99982 15.266 10.0258 15.3868 10.0763C15.5076 10.1268 15.6171 10.201 15.709 10.294C15.8956 10.4831 16.0002 10.738 16.0002 11.0035C16.0002 11.2691 15.8956 11.524 15.709 11.713L12.769 14.678C12.6677 14.7802 12.5471 14.8613 12.4143 14.9167C12.2814 14.9721 12.1389 15.0006 11.995 15.0006C11.8511 15.0006 11.7086 14.9721 11.5758 14.9167C11.4429 14.8613 11.3223 14.7802 11.221 14.678L8.29101 11.723C8.10414 11.534 7.99934 11.2789 7.99934 11.013C7.99934 10.7472 8.10414 10.4921 8.29101 10.303C8.38293 10.2098 8.49245 10.1358 8.61322 10.0853C8.73399 10.0348 8.8636 10.0088 8.99451 10.0088C9.12542 10.0088 9.25503 10.0348 9.3758 10.0853C9.49657 10.1358 9.60609 10.2098 9.69801 10.303L11.995 12.621L14.302 10.294Z"
+                                fill="#6941C6" />
+                        </svg>
+
+                    </button>
                 </div>
             </div>
 
             <div class="pt-3 w-full flex py-2 flex-col gap-4">
                 <h1 class="text-black font-semibold text-sm">Notes</h1>
-                <div class="flex flex-row w-full gap-4">
-                    <div class=""><img  src="./assets/vb.png" alt=""></div>
-                    <div class="w-11/12 pl-2 text-xs border rounded font-normal py-1">Called today. But didn’t get good response</div>
-                </div>
-                <div class="flex flex-row w-full gap-4">
-                    <div class=""><img  src="./assets/vb.png" alt=""></div>
-                    <div class="w-11/12 pl-2 text-xs border rounded font-normal py-1">Had meet and get some requirements and other details. Next meet time decided to discuss more.</div>
-                </div>
-                <div class="flex flex-row w-full gap-4">
-                    <div class=""><img  src="./assets/vb.png" alt=""></div>
-                    <div class="w-11/12 pl-2 text-xs border rounded font-normal py-1">Had meet and get some requirements and other details. Next meet time decided to discuss more.</div>
+                <div id="notes-container" class=" w-full flex py-2 flex-col gap-4">
+                    <div class="flex flex-row w-full gap-4">
+                        <div class=""><img src="./assets/vb.png" alt=""></div>
+                        <div class="w-11/12 pl-2 text-xs border rounded font-normal py-1">Called today. But didn’t get
+                            good response</div>
+                    </div>
+                    <div class="flex flex-row w-full gap-4">
+                        <div class=""><img src="./assets/vb.png" alt=""></div>
+                        <div class="w-11/12 pl-2 text-xs border rounded font-normal py-1">Had meet and get some
+                            requirements and other details. Next meet time decided to discuss more.</div>
+                    </div>
+                    <div class="flex flex-row w-full gap-4">
+                        <div class=""><img src="./assets/vb.png" alt=""></div>
+                        <div class="w-11/12 pl-2 text-xs border rounded font-normal py-1">Had meet and get some
+                            requirements and other details. Next meet time decided to discuss more.</div>
+                    </div>
                 </div>
             </div>
 
             <div class="flex flex-row gap-2 pt-4 ">
-                <input class="w-11/12  border text-gray-400 text-xs outline-none rounded px-1" placeholder="Write your note here..." />
-                <svg width="32" height="33" viewBox="0 0 32 33" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect y="0.857422" width="32" height="32" rx="16" fill="#6941C6"/>
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M16.8333 16.0241V10.1849C16.8325 9.96472 16.7442 9.75387 16.5879 9.59871C16.4317 9.44354 16.2202 9.35676 16 9.35743C15.5367 9.35743 15.1667 9.72826 15.1667 10.1849V16.0241H9.3275C9.1073 16.025 8.89645 16.1132 8.74129 16.2695C8.58612 16.4258 8.49934 16.6372 8.5 16.8574C8.5 17.3216 8.87084 17.6908 9.3275 17.6908H15.1667V23.5299C15.1667 23.9866 15.54 24.3574 16 24.3574C16.4633 24.3574 16.8333 23.9866 16.8333 23.5299V17.6908H22.6725C22.8927 17.6899 23.1036 17.6016 23.2587 17.4454C23.4139 17.2891 23.5007 17.0776 23.5 16.8574C23.5 16.3941 23.1292 16.0241 22.6725 16.0241H16.8333Z" fill="#FCFCFD"/>
+                <input id="note-input" class="w-11/12  border text-gray-400 text-xs outline-none rounded px-1"
+                    placeholder="Write your note here..." />
+                <button id="add-note-button">
+                    <svg width="32" height="33" viewBox="0 0 32 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect y="0.857422" width="32" height="32" rx="16" fill="#6941C6" />
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M16.8333 16.0241V10.1849C16.8325 9.96472 16.7442 9.75387 16.5879 9.59871C16.4317 9.44354 16.2202 9.35676 16 9.35743C15.5367 9.35743 15.1667 9.72826 15.1667 10.1849V16.0241H9.3275C9.1073 16.025 8.89645 16.1132 8.74129 16.2695C8.58612 16.4258 8.49934 16.6372 8.5 16.8574C8.5 17.3216 8.87084 17.6908 9.3275 17.6908H15.1667V23.5299C15.1667 23.9866 15.54 24.3574 16 24.3574C16.4633 24.3574 16.8333 23.9866 16.8333 23.5299V17.6908H22.6725C22.8927 17.6899 23.1036 17.6016 23.2587 17.4454C23.4139 17.2891 23.5007 17.0776 23.5 16.8574C23.5 16.3941 23.1292 16.0241 22.6725 16.0241H16.8333Z"
+                            fill="#FCFCFD" />
                     </svg>
-                    
+                </button>
             </div>
 
         </div>
@@ -510,34 +546,71 @@
         // });
 
 
-        //Add NOtes POpup
-        // document.addEventListener('DOMContentLoaded', () => {
-        //     const rows = document.querySelectorAll('#lead-table tbody tr');
-        //     const popup = document.getElementById('popup');
-        //     const closePopup = document.getElementById('close-popup');
+        // // Add NOtes POpup
 
-        //     rows.forEach(row => {
-        //         row.addEventListener('click', () => {
-        //             const name = row.querySelector('th').innerText;
-        //             const email = row.children[3].innerText;
-        //             const phone = row.children[4].innerText;
-        //             const linkedin = row.querySelector('img').src;
-        //             const message = row.children[1].innerText;
+        // const rowss = document.querySelectorAll('#lead-table tbody tr');
+        // const popup = document.getElementById('popup');
+        // const closePopup = document.getElementById('close-popup');
 
-        //             document.getElementById('popup-name').innerText = name;
-        //             document.getElementById('popup-phone').innerText = phone;
-        //             document.getElementById('popup-email').innerText = email;
-        //             document.getElementById('popup-linkedin').innerText = linkedin;
-        //             document.getElementById('popup-message').innerText = message;
+        // rowss.forEach(row => {
+        //     row.addEventListener('click', () => {
+        //         const name = row.querySelector('th').innerText;
+        //         const email = row.children[3].innerText;
+        //         const phone = row.children[4].innerText;
+        //         const linkedin = row.querySelector('img').src;
+        //         const message = row.children[1].innerText;
+        //         const followUp = row.children[7].innerText;
 
-        //             popup.classList.remove('hidden');
-        //         });
-        //     });
+        //         document.getElementById('popup-header-name').innerText = name;
+        //         document.getElementById('popup-name').innerText = name;
+        //         document.getElementById('popup-phone').innerText = phone;
+        //         document.getElementById('popup-email').innerText = email;
+        //         document.getElementById('popup-url').innerText = linkedin;
+        //         document.getElementById('popup-message').innerText = message;
+        //         document.getElementById('popup-follow-up').innerText = followUp;
 
-        //     closePopup.addEventListener('click', () => {
-        //         popup.classList.add('hidden');
+        //         popup.classList.remove('hidden');
         //     });
         // });
+
+        // closePopup.addEventListener('click', () => {
+        //     popup.classList.add('hidden');
+        // });
+
+        // // add note submit button function 
+        // document.getElementById('add-note-button').addEventListener('click', function () {
+        //     const noteInput = document.getElementById('note-input');
+        //     const noteText = noteInput.value.trim();
+
+        //     if (noteText !== "") {
+        //         const notesContainer = document.getElementById('notes-container');
+
+        //         const newNoteDiv = document.createElement('div');
+        //         newNoteDiv.classList.add('flex', 'flex-row', 'w-full', 'gap-4');
+
+        //         const newNoteImgDiv = document.createElement('div');
+        //         const newNoteImg = document.createElement('img');
+        //         newNoteImg.src = './assets/vb.png';
+        //         newNoteImg.alt = '';
+        //         newNoteImgDiv.appendChild(newNoteImg);
+
+        //         const newNoteTextDiv = document.createElement('div');
+        //         newNoteTextDiv.classList.add('w-11/12', 'pl-2', 'text-xs', 'border', 'rounded', 'font-normal', 'py-1');
+        //         newNoteTextDiv.textContent = noteText;
+
+        //         newNoteDiv.appendChild(newNoteImgDiv);
+        //         newNoteDiv.appendChild(newNoteTextDiv);
+
+        //         notesContainer.appendChild(newNoteDiv);
+
+        //         noteInput.value = "";
+        //     }
+        // });
+
+
+
+        // });
+
 
     </script>
 </body>

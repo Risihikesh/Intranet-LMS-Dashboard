@@ -237,6 +237,52 @@
                 closePopup.addEventListener('click', () => {
                     popup.classList.add('hidden');
                 });
+
+
+                // lead details popup up and down arrow key function
+
+                document.getElementById('up-arrow').addEventListener('click', function () {
+                    document.getElementById('lead-details').classList.add('hidden');
+                    document.getElementById('up-arrow').classList.add('hidden');
+                    document.getElementById('down-arrow').classList.remove('hidden');
+                });
+
+                document.getElementById('down-arrow').addEventListener('click', function () {
+                    document.getElementById('lead-details').classList.remove('hidden');
+                    document.getElementById('up-arrow').classList.remove('hidden');
+                    document.getElementById('down-arrow').classList.add('hidden');
+                });
+
+
+                // add note input function
+                document.getElementById('add-note-button').addEventListener('click', function () {
+                    const noteInput = document.getElementById('note-input');
+                    const noteText = noteInput.value.trim();
+
+                    if (noteText !== "") {
+                        const notesContainer = document.getElementById('notes-container');
+
+                        const newNoteDiv = document.createElement('div');
+                        newNoteDiv.classList.add('flex', 'flex-row', 'w-full', 'gap-4');
+
+                        const newNoteImgDiv = document.createElement('div');
+                        const newNoteImg = document.createElement('img');
+                        newNoteImg.src = './assets/sb.png';
+                        newNoteImg.alt = '';
+                        newNoteImgDiv.appendChild(newNoteImg);
+
+                        const newNoteTextDiv = document.createElement('div');
+                        newNoteTextDiv.classList.add('w-11/12', 'pl-2', 'text-xs', 'border', 'rounded', 'font-normal', 'py-1');
+                        newNoteTextDiv.textContent = noteText;
+
+                        newNoteDiv.appendChild(newNoteImgDiv);
+                        newNoteDiv.appendChild(newNoteTextDiv);
+
+                        notesContainer.appendChild(newNoteDiv);
+
+                        noteInput.value = "";
+                    }
+                });
             });
 
         document.getElementById('line-right').addEventListener('click', function () {
