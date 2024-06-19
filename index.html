@@ -162,7 +162,6 @@
                     document.getElementById('lead-form').classList.toggle('hidden');
                     document.getElementById('lead-table').classList.toggle('hidden');
                 });
-
                 document.getElementById('submit-lead').addEventListener('click', function () {
                     event.preventDefault();
                     document.getElementById('lead-form').classList.add('hidden');
@@ -170,26 +169,59 @@
 
                     document.getElementById('lead-form').reset();
                 });
+                document.getElementById('cancel-lead').addEventListener('click', function () {
+                    event.preventDefault();
+                    document.getElementById('lead-form').classList.add('hidden');
+                    document.getElementById('lead-table').classList.remove('hidden');
+                });
+
+                document.getElementById('addEmailBtn').addEventListener('click', function () {
+                    const emailInputContainer = document.getElementById('emailInputContainer');
+                    const numEmailInputs = emailInputContainer.querySelectorAll('input').length;
+
+                    if (numEmailInputs < 2) {
+                        const newEmailInput = document.createElement('input');
+                        newEmailInput.type = 'email';
+                        newEmailInput.name = 'email';
+                        newEmailInput.classList.add('flex', 'flex-row', 'gap-2', 'p-2', 'border', 'rounded', 'outline-none');
+                        newEmailInput.placeholder = 'Enter additional email';
+
+                        emailInputContainer.appendChild(newEmailInput);
+
+                        // Update the number of email inputs
+                        const updatedNumEmailInputs = emailInputContainer.querySelectorAll('input').length;
+                        emailInputContainer.style.setProperty('--num-email-inputs', updatedNumEmailInputs);
+
+                        // Update the width of each email input
+                        emailInputContainer.querySelectorAll('input').forEach(input => {
+                            input.style.flexBasis = `calc(100% / ${updatedNumEmailInputs})`;
+                        });
+                    }
+                });
+
 
                 document.getElementById('addPhoneBtn').addEventListener('click', function () {
-                    const additionalPhones = document.getElementById('additionalPhones');
-                    const newPhoneDiv = document.createElement('div');
-                    newPhoneDiv.classList.add('extra-phone');
+                    const inputContainer = document.getElementById('inputContainer');
+                    const numInputs = inputContainer.querySelectorAll('input').length;
 
-                    const newLabel = document.createElement('label');
-                    newLabel.classList.add('text-sm', 'font-medium', 'text-gray-900');
-                    // newLabel.textContent = 'Additional Phone Number';
+                    if (numInputs < 2) {
+                        const newInput = document.createElement('input');
+                        newInput.type = 'text';
+                        newInput.name = 'phone';
+                        newInput.classList.add('flex', 'flex-row', 'gap-2', 'p-2', 'border', 'rounded', 'outline-none');
+                        newInput.placeholder = 'Enter additional phone no';
 
-                    const newInput = document.createElement('input');
-                    newInput.type = 'text';
-                    newInput.name = 'phone';
-                    newInput.classList.add('p-2', 'border', 'border-gray-300', 'rounded', 'mt-1');
+                        inputContainer.appendChild(newInput);
 
-                    // newPhoneDiv.appendChild(newLabel);
-                    newPhoneDiv.appendChild(newInput);
+                        // Update the number of inputs
+                        const updatedNumInputs = inputContainer.querySelectorAll('input').length;
+                        inputContainer.style.setProperty('--num-inputs', updatedNumInputs);
 
-                    additionalPhones.appendChild(newPhoneDiv);
-
+                        // Update the width of each input
+                        inputContainer.querySelectorAll('input').forEach(input => {
+                            input.style.flexBasis = `calc(100% / ${updatedNumInputs})`;
+                        });
+                    }
                 });
 
 
@@ -209,13 +241,14 @@
 
 
                 //Add Notes Pop-UP
-                const rowss = document.querySelectorAll('#lead-table tbody tr');
+                const fullNameDivs = document.querySelectorAll('.fullName');
                 const popup = document.getElementById('popup');
                 const closePopup = document.getElementById('close-popup');
 
-                rowss.forEach(row => {
-                    row.addEventListener('click', () => {
-                        const name = row.querySelector('th').innerText;
+                fullNameDivs.forEach(div => {
+                    div.addEventListener('click', () => {
+                        const row = div.closest('tr');
+                        const name = row.querySelector('th .fullName').innerText;
                         const email = row.children[3].innerText;
                         const phone = row.children[4].innerText;
                         const linkedin = row.querySelector('img').src;
@@ -234,9 +267,11 @@
                     });
                 });
 
+                // Close lead details popup
                 closePopup.addEventListener('click', () => {
                     popup.classList.add('hidden');
                 });
+
 
 
                 // lead details popup up and down arrow key function

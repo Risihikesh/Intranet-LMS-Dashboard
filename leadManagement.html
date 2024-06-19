@@ -17,6 +17,17 @@
         body {
             font-family: 'Inter', sans-serif;
         }
+
+        .input-container input {
+            flex-grow: 1;
+            flex-basis: calc(100% / var(--num-inputs) - 0.5rem);
+            min-width: 0;
+            box-sizing: border-box;
+        }
+
+        .input-container {
+            gap: 0.5rem;
+        }
     </style>
 </head>
 
@@ -126,7 +137,9 @@
                             </td>
                             <th scope="row" class="flex items-center px-4 py-4  text-gray-900">
                                 <div class="ps-3 w-full">
-                                    <div class="text-sm  w-full gap-4 font-semibold flex justify-between">Isanur Sardar
+                                    <div
+                                        class=" fullName text-sm  w-full gap-4 font-semibold flex justify-between cursor-pointer">
+                                        Isanur Sardar
                                         <img src="./assets/banao.png" alt="">
                                     </div>
                                 </div>
@@ -160,7 +173,9 @@
                             </td>
                             <th scope="row" class="flex items-center px-4 py-4 text-gray-900">
                                 <div class="ps-3 w-full">
-                                    <div class="text-sm w-full font-semibold gap-4 flex justify-between ">Mrinal Das
+                                    <div
+                                        class="fullName cursor-pointer text-sm w-full font-semibold gap-4 flex justify-between ">
+                                        Mrinal Das
                                         <img src="./assets/banao.png" alt="">
                                     </div>
                                 </div>
@@ -194,8 +209,9 @@
                             </td>
                             <th scope="row" class="flex items-center px-4 py-4 text-gray-900">
                                 <div class="ps-3 w-full">
-                                    <div class="text-sm w-full font-semibold flex justify-between">Sumit Kumar <img
-                                            src="./assets/Linkedin.png" alt=""></div>
+                                    <div
+                                        class="fullName cursor-pointer text-sm w-full font-semibold flex justify-between">
+                                        Sumit Kumar <img src="./assets/Linkedin.png" alt=""></div>
                                 </div>
                             </th>
                             <td class="px-4 py-4">
@@ -227,8 +243,9 @@
                             </td>
                             <th scope="row" class="flex items-center px-4 py-4 text-gray-900">
                                 <div class="ps-3 w-full">
-                                    <div class="text-sm w-full font-semibold flex justify-between">Anushree Das <img
-                                            src="./assets/instagram.png" alt=""></div>
+                                    <div
+                                        class="fullName cursor-pointer text-sm w-full font-semibold flex justify-between">
+                                        Anushree Das <img src="./assets/instagram.png" alt=""></div>
                                 </div>
                             </th>
                             <td class="px-4 py-4">
@@ -260,8 +277,9 @@
                             </td>
                             <th scope="row" class="flex items-center px-4 py-4 text-gray-900">
                                 <div class="ps-3 w-full">
-                                    <div class="text-sm w-full font-semibold flex justify-between">Atanu Saha <img
-                                            src="./assets/banao.png" alt=""></div>
+                                    <div
+                                        class="fullName cursor-pointer text-sm w-full font-semibold flex justify-between">
+                                        Atanu Saha <img src="./assets/banao.png" alt=""></div>
                                 </div>
                             </th>
                             <td class="px-4 py-4">
@@ -392,89 +410,87 @@
 
 
 
-        <div id="lead-form" class="pt-4 hidden">
+        <form id="lead-form" class="pt-10 hidden">
             <div class="flex flex-col gap-4">
 
-                <div class="flex flex-col gap-2 w-1/2">
-                    <label for="fullName" class="text-sm font-medium text-gray-900">Name</label>
-                    <input type="text" id="fullName" name="fullName" class="p-2 border border-gray-300 rounded">
+                <div class="flex flex-row gap-2 w-3/4">
+                    <label for="fullName" class="text-sm font-medium text-gray-900 w-1/4">Name</label>
+                    <input type="text" id="fullName" name="fullName"
+                        class="p-2 border outline-none border-gray-300 rounded w-3/4" placeholder="Enter full name">
                 </div>
-                <div class="flex flex-col gap-2 w-1/2">
-                    <label for="status" class="text-sm font-medium text-gray-900">Status</label>
-                    <input type="text" id="status" name="status" class="p-2 border border-gray-300 rounded">
+                <div class="flex flex-row gap-2 w-3/4">
+                    <label for="status" class="text-sm font-medium text-gray-900 w-1/4">Status</label>
+                    <input type="text" id="status" name="status"
+                        class="p-2 border outline-none border-gray-300 rounded w-3/4">
                 </div>
 
-
-                <div class="flex flex-col gap-2 w-1/2">
-                    <label for="email" class="text-sm font-medium text-gray-900">Email</label>
-                    <input type="email" id="email" name="email" class="p-2 border border-gray-300 rounded">
+                <div class="flex flex-row gap-2 w-3/4" id="emailInputs">
+                    <label for="email" class="text-sm font-medium text-gray-900 w-1/4">Email</label>
+                    <div id="emailInputContainer" class="flex flex-wrap w-3/4" style="--num-email-inputs: 1;">
+                        <input type="email" id="email" name="email"
+                            class="p-2 border border-gray-300 outline-none rounded w-full" placeholder="Enter Email">
+                    </div>
+                    <button type="button" id="addEmailBtn"
+                        class="  absolute right-60 bg-blue-500 w-10 h-10 rounded-full text-white text-2xl text-center items-center pb-1">+</button>
                 </div>
-                <div class="flex flex-row">
-                    <div class="flex flex-col gap-2 w-1/2">
-                        <label for="phone" class="text-sm font-medium text-gray-900">Phone Number</label>
-                        <div class="flex flex-row">
-                            <input type="text" id="phone" name="phone" class="p-2 border border-gray-300 rounded">
-                            <div id="additionalPhones" class="flex flex-col gap-2 w-1/2"></div>
-                        </div>
+                <div class="flex flex-row gap-2 w-3/4">
+                    <label for="phone" class="text-sm font-medium text-gray-900 w-1/4">Phone Number</label>
+                    <div id="inputContainer" class="flex flex-wrap w-3/4" style="--num-inputs: 1;">
+                        <input type="text" id="phone" name="phone"
+                            class="p-2 outline-none w-full border border-gray-300 rounded" placeholder="Enter Phone no">
                     </div>
                     <button type="button" id="addPhoneBtn"
-                        class=" bg-blue-500 w-10 h-10 rounded-full text-white text-2xl text-center items-center rounded pb-1">+</button>
-
+                        class=" absolute right-60 bg-blue-500 w-10 h-10 rounded-full text-white text-2xl text-center items-center pb-1">+</button>
                 </div>
 
-                <div class="flex flex-col gap-2 w-1/2">
-                    <label for="approach" class="text-sm font-medium text-gray-900">URL</label>
-                    <input type="text" id="url" name="url" class="p-2 border border-gray-300 rounded">
+                <div class="flex flex-row gap-2 w-3/4">
+                    <label for="url" class="text-sm font-medium text-gray-900 w-1/4">URL</label>
+                    <input type="text" id="url" name="url" class="p-2 border outline-none border-gray-300 rounded w-3/4"
+                        placeholder="Website">
                 </div>
-                <div class="flex flex-col gap-2 w-1/2">
-                    <label for="lastFollowUp" class="text-sm font-medium text-gray-900">Message</label>
-                    <input type="text" id="lastFollowUp" name="lastFollowUp" class="p-2 border border-gray-300 rounded">
-                </div>
-
-                <div class="flex flex-row gap-4">
-                    <div class="flex flex-col gap-2 w-1/2">
-                        <label for="nextFollowUp" class="text-sm font-medium text-gray-900">Intern Name</label>
-                        <input type="text" id="nextFollowUp" name="nextFollowUp"
-                            class="p-2 border border-gray-300 rounded">
-                    </div>
-                </div>
-                <div class="flex flex-row gap-4">
-                    <div class="flex flex-col gap-2 w-1/2">
-                        <label for="nextFollowUp" class="text-sm font-medium text-gray-900">Workflow Status</label>
-                        <select id="nextFollowUp" name="nextFollowUp" class="p-2 border border-gray-300 rounded">
-                            <option value="intern1">Confirmed</option>
-                            <option value="intern2">Audit Sent</option>
-                            <option value="intern3">Proposal Sent</option>
-
-                        </select>
-                    </div>
-                </div>
-                <div class="flex flex-row gap-4">
-                    <div class="flex flex-col gap-2 w-1/2">
-                        <label for="nextFollowUp" class="text-sm font-medium text-gray-900">Industries</label>
-                        <select id="nextFollowUp" name="nextFollowUp" class="p-2 border border-gray-300 rounded">
-                            <option value="intern1">Information Technology</option>
-                            <option value="intern2">Healthcare</option>
-                            <option value="intern3">Education</option>
-
-                        </select>
-                    </div>
-                </div>
-                <div class="flex flex-row gap-4">
-                    <div class="flex flex-col gap-2 w-1/2">
-                        <label for="nextFollowUp" class="text-sm font-medium text-gray-900">Type</label>
-                        <select id="nextFollowUp" name="nextFollowUp" class="p-2 border border-gray-300 rounded">
-                            <option value="intern1">Marketing</option>
-                            <option value="intern2">Development</option>
-                            <option value="intern3">UI/UX Audit</option>
-
-                        </select>
-                    </div>
+                <div class="flex flex-row gap-2 w-3/4">
+                    <label for="message" class="text-sm font-medium text-gray-900 w-1/4">Message</label>
+                    <textarea id="message" name="message"
+                        class="p-2 h-24 border outline-none border-gray-300 rounded w-3/4"
+                        placeholder="Enter message..."></textarea>
                 </div>
 
-                <button id="submit-lead" class="self-end bg-purple-600 text-white py-2 px-4 rounded">Submit</button>
+                <div class="flex flex-row gap-2 w-3/4">
+                    <label for="internName" class="text-sm font-medium text-gray-900 w-1/4">Intern Name</label>
+                    <input type="text" id="internName" name="internName"
+                        class="p-2 border border-gray-300 outline-none rounded w-3/4" placeholder="Intern Name">
+                </div>
+                <div class="flex flex-row gap-2 w-3/4">
+                    <label for="workflowStatus" class="text-sm font-medium text-gray-900 w-1/4">Workflow Status</label>
+                    <select id="workflowStatus" name="workflowStatus" class="p-2 border border-gray-300 rounded w-3/4">
+                        <option value="confirmed">Confirmed</option>
+                        <option value="auditSent">Audit Sent</option>
+                        <option value="proposalSent">Proposal Sent</option>
+                    </select>
+                </div>
+                <div class="flex flex-row gap-2 w-3/4">
+                    <label for="industry" class="text-sm font-medium text-gray-900 w-1/4">Industries</label>
+                    <select id="industry" name="industry" class="p-2 border border-gray-300 rounded w-3/4">
+                        <option value="it">Information Technology</option>
+                        <option value="healthcare">Healthcare</option>
+                        <option value="education">Education</option>
+                    </select>
+                </div>
+                <div class="flex flex-row gap-2 w-3/4">
+                    <label for="type" class="text-sm font-medium text-gray-900 w-1/4">Type</label>
+                    <select id="type" name="type" class="p-2 border border-gray-300 rounded w-3/4">
+                        <option value="marketing">Marketing</option>
+                        <option value="development">Development</option>
+                        <option value="uiuxAudit">UI/UX Audit</option>
+                    </select>
+                </div>
+
+                <div class="self-end py-10">
+                    <button id="submit-lead" class="bg-purple-600 text-white py-2 px-4 rounded">Submit</button>
+                    <button id="cancel-lead" class="bg-gray-200 text-black py-2 px-4 rounded">Cancel</button>
+                </div>
             </div>
-        </div>
+        </form>
     </div>
 
     <script>
@@ -577,7 +593,7 @@
         //     popup.classList.add('hidden');
         // });
 
-        // // add note submit button function 
+        // // add note submit button function
         // document.getElementById('add-note-button').addEventListener('click', function () {
         //     const noteInput = document.getElementById('note-input');
         //     const noteText = noteInput.value.trim();
