@@ -259,7 +259,9 @@
                         document.getElementById('popup-name').innerText = name;
                         document.getElementById('popup-phone').innerText = phone;
                         document.getElementById('popup-email').innerText = email;
-                        document.getElementById('popup-url').innerText = linkedin;
+                        const urlElement = document.getElementById('popup-url');
+                        urlElement.innerText = linkedin;
+                        urlElement.href = linkedin;
                         document.getElementById('popup-message').innerText = message;
                         document.getElementById('popup-follow-up').innerText = followUp;
 

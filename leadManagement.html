@@ -328,7 +328,7 @@
                         <span id="popup-phone" class="text-sm font-normal" style="color: rgba(71, 84, 103, 1);"></span>
                     </div>
                     <div class="font-medium text-sm flex flex-col" style="color: rgba(52, 64, 84, 1);">URL
-                        <span id="popup-url" class="text-sm font-normal" style="color: rgba(71, 84, 103, 1);"></span>
+                        <a id="popup-url"  class="text-sm font-normal" target="_blank" style="color: #6941C6">clickhere</a>
                     </div>
                     <div class="font-medium text-sm flex flex-col" style="color: rgba(52, 64, 84, 1);">Message
                         <span id="popup-message" class="text-sm font-normal"
@@ -411,84 +411,84 @@
 
 
         <form id="lead-form" class="pt-10 hidden">
-            <div class="flex flex-col gap-4">
+            <div class="flex flex-col gap-6 divide-y">
 
                 <div class="flex flex-row gap-2 w-3/4">
                     <label for="fullName" class="text-sm font-medium text-gray-900 w-1/4">Name</label>
                     <input type="text" id="fullName" name="fullName"
                         class="p-2 border outline-none border-gray-300 rounded w-3/4" placeholder="Enter full name">
                 </div>
-                <div class="flex flex-row gap-2 w-3/4">
+                <!-- <div class="flex flex-row gap-2 w-3/4">
                     <label for="status" class="text-sm font-medium text-gray-900 w-1/4">Status</label>
                     <input type="text" id="status" name="status"
                         class="p-2 border outline-none border-gray-300 rounded w-3/4">
-                </div>
+                </div> -->
 
-                <div class="flex flex-row gap-2 w-3/4" id="emailInputs">
+                <div class="flex flex-row gap-2 w-3/4 pt-6 " id="emailInputs">
                     <label for="email" class="text-sm font-medium text-gray-900 w-1/4">Email</label>
                     <div id="emailInputContainer" class="flex flex-wrap w-3/4" style="--num-email-inputs: 1;">
                         <input type="email" id="email" name="email"
                             class="p-2 border border-gray-300 outline-none rounded w-full" placeholder="Enter Email">
                     </div>
                     <button type="button" id="addEmailBtn"
-                        class="  absolute right-60 bg-blue-500 w-10 h-10 rounded-full text-white text-2xl text-center items-center pb-1">+</button>
+                        class="  absolute right-60 bg-purple-600 w-10 h-10 rounded-full text-white text-2xl text-center items-center pb-1">+</button>
                 </div>
-                <div class="flex flex-row gap-2 w-3/4">
+                <div class="flex flex-row gap-2 w-3/4 pt-6">
                     <label for="phone" class="text-sm font-medium text-gray-900 w-1/4">Phone Number</label>
                     <div id="inputContainer" class="flex flex-wrap w-3/4" style="--num-inputs: 1;">
                         <input type="text" id="phone" name="phone"
                             class="p-2 outline-none w-full border border-gray-300 rounded" placeholder="Enter Phone no">
                     </div>
                     <button type="button" id="addPhoneBtn"
-                        class=" absolute right-60 bg-blue-500 w-10 h-10 rounded-full text-white text-2xl text-center items-center pb-1">+</button>
+                        class=" absolute right-60 bg-purple-600 w-10 h-10 rounded-full text-white text-2xl text-center items-center pb-1">+</button>
                 </div>
 
-                <div class="flex flex-row gap-2 w-3/4">
+                <div class="flex flex-row gap-2 w-3/4 pt-6">
                     <label for="url" class="text-sm font-medium text-gray-900 w-1/4">URL</label>
                     <input type="text" id="url" name="url" class="p-2 border outline-none border-gray-300 rounded w-3/4"
                         placeholder="Website">
                 </div>
-                <div class="flex flex-row gap-2 w-3/4">
+                <div class="flex flex-row gap-2 w-3/4 pt-6">
                     <label for="message" class="text-sm font-medium text-gray-900 w-1/4">Message</label>
                     <textarea id="message" name="message"
                         class="p-2 h-24 border outline-none border-gray-300 rounded w-3/4"
                         placeholder="Enter message..."></textarea>
                 </div>
 
-                <div class="flex flex-row gap-2 w-3/4">
+                <div class="flex flex-row gap-2 w-3/4 pt-6">
                     <label for="internName" class="text-sm font-medium text-gray-900 w-1/4">Intern Name</label>
                     <input type="text" id="internName" name="internName"
                         class="p-2 border border-gray-300 outline-none rounded w-3/4" placeholder="Intern Name">
                 </div>
-                <div class="flex flex-row gap-2 w-3/4">
+                <div class="flex flex-row gap-2 w-3/4 pt-6">
                     <label for="workflowStatus" class="text-sm font-medium text-gray-900 w-1/4">Workflow Status</label>
-                    <select id="workflowStatus" name="workflowStatus" class="p-2 border border-gray-300 rounded w-3/4">
+                    <select id="workflowStatus" name="workflowStatus" class="p-2 outline-none border border-gray-300 rounded w-3/4">
                         <option value="confirmed">Confirmed</option>
                         <option value="auditSent">Audit Sent</option>
                         <option value="proposalSent">Proposal Sent</option>
                     </select>
                 </div>
-                <div class="flex flex-row gap-2 w-3/4">
+                <div class="flex flex-row gap-2 w-3/4 pt-6">
                     <label for="industry" class="text-sm font-medium text-gray-900 w-1/4">Industries</label>
-                    <select id="industry" name="industry" class="p-2 border border-gray-300 rounded w-3/4">
+                    <select id="industry" name="industry" class="p-2 outline-none border border-gray-300 rounded w-3/4">
                         <option value="it">Information Technology</option>
                         <option value="healthcare">Healthcare</option>
                         <option value="education">Education</option>
                     </select>
                 </div>
-                <div class="flex flex-row gap-2 w-3/4">
+                <div class="flex flex-row gap-2 w-3/4 pt-6">
                     <label for="type" class="text-sm font-medium text-gray-900 w-1/4">Type</label>
-                    <select id="type" name="type" class="p-2 border border-gray-300 rounded w-3/4">
+                    <select id="type" name="type" class="p-2 outline-none border border-gray-300 rounded w-3/4">
                         <option value="marketing">Marketing</option>
                         <option value="development">Development</option>
                         <option value="uiuxAudit">UI/UX Audit</option>
                     </select>
                 </div>
 
-                <div class="self-end py-10">
-                    <button id="submit-lead" class="bg-purple-600 text-white py-2 px-4 rounded">Submit</button>
-                    <button id="cancel-lead" class="bg-gray-200 text-black py-2 px-4 rounded">Cancel</button>
-                </div>
+                
+            </div><div class="absolute right-0 px-6 py-10 ">
+                <button id="submit-lead" class="bg-purple-600 text-white py-2 px-4 rounded">Submit</button>
+                <button id="cancel-lead" class="bg-gray-200 text-black py-2 px-4 rounded">Cancel</button>
             </div>
         </form>
     </div>
