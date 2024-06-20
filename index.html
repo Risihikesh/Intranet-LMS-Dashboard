@@ -177,24 +177,24 @@
 
                 document.getElementById('addEmailBtn').addEventListener('click', function () {
                     const emailInputContainer = document.getElementById('emailInputContainer');
-                    const numEmailInputs = emailInputContainer.querySelectorAll('input').length;
+                    const numEmailInputs = emailInputContainer.querySelectorAll('.email-input-wrapper').length;
 
                     if (numEmailInputs < 2) {
-                        const newEmailInput = document.createElement('input');
-                        newEmailInput.type = 'email';
-                        newEmailInput.name = 'email';
-                        newEmailInput.classList.add('flex', 'flex-row', 'gap-2', 'p-2', 'border', 'rounded', 'outline-none');
-                        newEmailInput.placeholder = 'Enter additional email';
+                        const originalInputWrapper = emailInputContainer.querySelector('.email-input-wrapper');
+                        const newInputWrapper = originalInputWrapper.cloneNode(true);
 
-                        emailInputContainer.appendChild(newEmailInput);
+                        // Update the placeholder of the new input
+                        newInputWrapper.querySelector('input').placeholder = 'Enter additional email';
+
+                        emailInputContainer.appendChild(newInputWrapper);
 
                         // Update the number of email inputs
-                        const updatedNumEmailInputs = emailInputContainer.querySelectorAll('input').length;
+                        const updatedNumEmailInputs = emailInputContainer.querySelectorAll('.email-input-wrapper').length;
                         emailInputContainer.style.setProperty('--num-email-inputs', updatedNumEmailInputs);
 
-                        // Update the width of each email input
-                        emailInputContainer.querySelectorAll('input').forEach(input => {
-                            input.style.flexBasis = `calc(100% / ${updatedNumEmailInputs})`;
+                        // Update the width of each email input wrapper
+                        emailInputContainer.querySelectorAll('.email-input-wrapper').forEach(wrapper => {
+                            wrapper.style.flexBasis = `calc(100% / ${updatedNumEmailInputs})`;
                         });
                     }
                 });
@@ -202,24 +202,24 @@
 
                 document.getElementById('addPhoneBtn').addEventListener('click', function () {
                     const inputContainer = document.getElementById('inputContainer');
-                    const numInputs = inputContainer.querySelectorAll('input').length;
+                    const numInputs = inputContainer.querySelectorAll('.phone-input-wrapper').length;
 
                     if (numInputs < 2) {
-                        const newInput = document.createElement('input');
-                        newInput.type = 'text';
-                        newInput.name = 'phone';
-                        newInput.classList.add('flex', 'flex-row', 'gap-2', 'p-2', 'border', 'rounded', 'outline-none');
-                        newInput.placeholder = 'Enter additional phone no';
+                        const originalInputWrapper = inputContainer.querySelector('.phone-input-wrapper');
+                        const newInputWrapper = originalInputWrapper.cloneNode(true);
 
-                        inputContainer.appendChild(newInput);
+                        // Update the placeholder of the new input
+                        newInputWrapper.querySelector('input').placeholder = 'Enter additional phone no';
 
-                        // Update the number of inputs
-                        const updatedNumInputs = inputContainer.querySelectorAll('input').length;
+                        inputContainer.appendChild(newInputWrapper);
+
+                        // Update the number of phone inputs
+                        const updatedNumInputs = inputContainer.querySelectorAll('.phone-input-wrapper').length;
                         inputContainer.style.setProperty('--num-inputs', updatedNumInputs);
 
-                        // Update the width of each input
-                        inputContainer.querySelectorAll('input').forEach(input => {
-                            input.style.flexBasis = `calc(100% / ${updatedNumInputs})`;
+                        // Update the width of each phone input wrapper
+                        inputContainer.querySelectorAll('.phone-input-wrapper').forEach(wrapper => {
+                            wrapper.style.flexBasis = `calc(100% / ${updatedNumInputs})`;
                         });
                     }
                 });

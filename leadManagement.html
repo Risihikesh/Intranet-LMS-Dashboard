@@ -328,7 +328,8 @@
                         <span id="popup-phone" class="text-sm font-normal" style="color: rgba(71, 84, 103, 1);"></span>
                     </div>
                     <div class="font-medium text-sm flex flex-col" style="color: rgba(52, 64, 84, 1);">URL
-                        <a id="popup-url"  class="text-sm font-normal" target="_blank" style="color: #6941C6">clickhere</a>
+                        <a id="popup-url" class="text-sm font-normal" target="_blank"
+                            style="color: #6941C6">clickhere</a>
                     </div>
                     <div class="font-medium text-sm flex flex-col" style="color: rgba(52, 64, 84, 1);">Message
                         <span id="popup-message" class="text-sm font-normal"
@@ -424,29 +425,61 @@
                         class="p-2 border outline-none border-gray-300 rounded w-3/4">
                 </div> -->
 
-                <div class="flex flex-row gap-2 w-3/4 pt-6 " id="emailInputs">
+                <div class="flex flex-row gap-2 w-3/4 pt-6" id="emailInputs">
                     <label for="email" class="text-sm font-medium text-gray-900 w-1/4">Email</label>
-                    <div id="emailInputContainer" class="flex flex-wrap w-3/4" style="--num-email-inputs: 1;">
-                        <input type="email" id="email" name="email"
-                            class="p-2 border border-gray-300 outline-none rounded w-full" placeholder="Enter Email">
+                    <div id="emailInputContainer"
+                        class="flex flex-row items-center  gap-2  rounded border-gray-300 w-3/4"
+                        style="--num-email-inputs: 1;">
+                        <div class="flex flex-row items-center gap-2 px-2 w-full border rounded email-input-wrapper">
+                            <svg width="24" height="25" viewBox="0 0 24 25" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <rect width="24" height="24" transform="translate(0 0.857178)" fill="white"
+                                    fill-opacity="0.01" />
+                                <path
+                                    d="M5 7.85718V17.8572H19V7.85718H5ZM19 5.85718C20.1 5.85718 21 6.75718 21 7.85718V17.8572C21 18.9572 20.1 19.8572 19 19.8572H5C3.9 19.8572 3 18.9572 3 17.8572V7.85718C3 6.75718 3.9 5.85718 5 5.85718H19Z"
+                                    fill="#475467" />
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M5.498 7.35718H3.124C3.273 7.79718 3.523 8.21118 3.874 8.56218L9.756 14.4432C10.0455 14.7329 10.3892 14.9627 10.7676 15.1196C11.1459 15.2764 11.5514 15.3571 11.961 15.3571C12.3706 15.3571 12.7761 15.2764 13.1544 15.1196C13.5328 14.9627 13.8765 14.7329 14.166 14.4432L20.048 8.56218C20.398 8.21118 20.648 7.79718 20.797 7.35718H18.424L12.752 13.0292C12.6481 13.1332 12.5247 13.2156 12.3889 13.2719C12.2531 13.3282 12.1075 13.3572 11.9605 13.3572C11.8135 13.3572 11.6679 13.3282 11.5321 13.2719C11.3963 13.2156 11.2729 13.1332 11.169 13.0292L5.498 7.35718Z"
+                                    fill="#475467" />
+                            </svg>
+                            <input type="email" id="email" name="email" class="p-2 outline-none rounded w-full"
+                                placeholder="Enter Email">
+                        </div>
                     </div>
                     <button type="button" id="addEmailBtn"
-                        class="  absolute right-60 bg-purple-600 w-10 h-10 rounded-full text-white text-2xl text-center items-center pb-1">+</button>
+                        class="absolute right-60 bg-purple-600 w-10 h-10 rounded-full text-white text-2xl text-center items-center pb-1">+</button>
                 </div>
                 <div class="flex flex-row gap-2 w-3/4 pt-6">
                     <label for="phone" class="text-sm font-medium text-gray-900 w-1/4">Phone Number</label>
-                    <div id="inputContainer" class="flex flex-wrap w-3/4" style="--num-inputs: 1;">
-                        <input type="text" id="phone" name="phone"
-                            class="p-2 outline-none w-full border border-gray-300 rounded" placeholder="Enter Phone no">
+                    <div id="inputContainer" class="flex flex-row px-1 gap-2 w-3/4" style="--num-inputs: 1;">
+                        <div
+                            class="phone-input-wrapper w-full flex flex-row items-center px-2  gap-2 border border-gray-300 rounded">
+                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M12.8655 9.91652L10.4645 8.69864C10.4645 8.69864 9.82604 8.45763 9.33084 9.00899L8.54325 9.93026C8.54325 9.93026 8.20556 10.2608 7.69707 9.93273C6.14821 9.0196 4.89441 7.94692 3.78616 6.53303C3.35211 5.98214 3.67159 5.6954 3.67159 5.6954L4.24955 5.01987C4.72522 4.45286 4.39845 3.85477 4.39845 3.85477L3.08573 1.41248C2.40245 0.328255 0.709561 1.29865 0.310256 2.41038C-0.61937 4.99033 1.36183 7.29159 2.88953 9.0171C3.61457 9.83685 4.56805 10.5782 5.36045 11.165C6.74843 12.1901 9.73007 14.0188 12.1585 12.7417C13.2025 12.1917 14.0342 10.4423 12.8655 9.91652Z"
+                                    fill="#475467" />
+                            </svg>
+
+                            <input type="text" id="phone" name="phone" class="p-2 outline-none w-full"
+                                placeholder="Enter Phone no">
+                        </div>
                     </div>
                     <button type="button" id="addPhoneBtn"
-                        class=" absolute right-60 bg-purple-600 w-10 h-10 rounded-full text-white text-2xl text-center items-center pb-1">+</button>
+                        class="absolute right-60 bg-purple-600 w-10 h-10 rounded-full text-white text-2xl text-center items-center pb-1">+</button>
                 </div>
 
                 <div class="flex flex-row gap-2 w-3/4 pt-6">
                     <label for="url" class="text-sm font-medium text-gray-900 w-1/4">URL</label>
-                    <input type="text" id="url" name="url" class="p-2 border outline-none border-gray-300 rounded w-3/4"
+                    <div class="flex flex-row w-3/4 border rounded items-center px-2  border-gray-300">
+                        <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="24" height="24" transform="translate(0 0.857178)" fill="white" fill-opacity="0.01"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 21.8572C13.1819 21.8572 14.3522 21.6244 15.4442 21.1721C16.5361 20.7198 17.5282 20.0569 18.364 19.2211C19.1997 18.3854 19.8626 17.3933 20.3149 16.3013C20.7672 15.2094 21 14.0391 21 12.8572C21 11.6753 20.7672 10.505 20.3149 9.41303C19.8626 8.3211 19.1997 7.32894 18.364 6.49322C17.5282 5.65749 16.5361 4.99455 15.4442 4.54226C14.3522 4.08997 13.1819 3.85718 12 3.85718C9.61305 3.85718 7.32387 4.80539 5.63604 6.49322C3.94821 8.18104 3 10.4702 3 12.8572C3 15.2441 3.94821 17.5333 5.63604 19.2211C7.32387 20.909 9.61305 21.8572 12 21.8572ZM11.1 19.9942C9.36032 19.7772 7.75986 18.932 6.59966 17.6177C5.43945 16.3033 4.79944 14.6103 4.8 12.8572C4.8 12.2992 4.872 11.7682 4.989 11.2462L9.3 15.5572V16.4572C9.3 17.4472 10.11 18.2572 11.1 18.2572V19.9942ZM17.31 17.7082C17.1958 17.3445 16.9682 17.0268 16.6605 16.8017C16.3529 16.5766 15.9812 16.4559 15.6 16.4572H14.7V13.7572C14.7 13.2622 14.295 12.8572 13.8 12.8572H8.4V11.0572H10.2C10.695 11.0572 11.1 10.6522 11.1 10.1572V8.35718H12.9C13.89 8.35718 14.7 7.54718 14.7 6.55718V6.18818C17.337 7.25918 19.2 9.84218 19.2 12.8572C19.2 14.7292 18.48 16.4302 17.31 17.7082Z" fill="#475467"/>
+                            </svg>
+                            
+                    <input type="text" id="url" name="url" class="p-2  outline-none   w-full"
                         placeholder="Website">
+                    </div>
                 </div>
                 <div class="flex flex-row gap-2 w-3/4 pt-6">
                     <label for="message" class="text-sm font-medium text-gray-900 w-1/4">Message</label>
@@ -457,12 +490,22 @@
 
                 <div class="flex flex-row gap-2 w-3/4 pt-6">
                     <label for="internName" class="text-sm font-medium text-gray-900 w-1/4">Intern Name</label>
+                    <div class=" flex flex-row w-3/4 items-center px-2  border border-gray-300 rounded ">
+                    <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="24" height="24" transform="translate(0 0.857178)" fill="white" fill-opacity="0.01"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M14.5 13.8662H9.5C8.12 13.8662 7 14.9862 7 16.3692V20.3472C8.47848 21.3396 10.2193 21.8685 12 21.8662C13.7807 21.8685 15.5216 21.3396 17 20.3472V16.3692C17.0003 15.7058 16.7371 15.0694 16.2682 14.6001C15.7994 14.1307 15.1634 13.8667 14.5 13.8662Z" fill="#475467"/>
+                        <path d="M12 12.8572C13.6569 12.8572 15 11.514 15 9.85718C15 8.20032 13.6569 6.85718 12 6.85718C10.3431 6.85718 9 8.20032 9 9.85718C9 11.514 10.3431 12.8572 12 12.8572Z" fill="#475467"/>
+                        <path d="M12 20.8572C14.1217 20.8572 16.1566 20.0143 17.6569 18.514C19.1571 17.0137 20 14.9789 20 12.8572C20 10.7354 19.1571 8.70061 17.6569 7.20032C16.1566 5.70003 14.1217 4.85718 12 4.85718C9.87827 4.85718 7.84344 5.70003 6.34315 7.20032C4.84285 8.70061 4 10.7354 4 12.8572C4 14.9789 4.84285 17.0137 6.34315 18.514C7.84344 20.0143 9.87827 20.8572 12 20.8572ZM12 22.8572C6.477 22.8572 2 18.3802 2 12.8572C2 7.33418 6.477 2.85718 12 2.85718C17.523 2.85718 22 7.33418 22 12.8572C22 18.3802 17.523 22.8572 12 22.8572Z" fill="#475467"/>
+                        </svg>
+                        
                     <input type="text" id="internName" name="internName"
-                        class="p-2 border border-gray-300 outline-none rounded w-3/4" placeholder="Intern Name">
+                        class="p-2 outline-none " placeholder="Intern Name">
+                    </div>
                 </div>
                 <div class="flex flex-row gap-2 w-3/4 pt-6">
                     <label for="workflowStatus" class="text-sm font-medium text-gray-900 w-1/4">Workflow Status</label>
-                    <select id="workflowStatus" name="workflowStatus" class="p-2 outline-none border border-gray-300 rounded w-3/4">
+                    <select id="workflowStatus" name="workflowStatus"
+                        class="p-2 outline-none border border-gray-300 rounded w-3/4">
                         <option value="confirmed">Confirmed</option>
                         <option value="auditSent">Audit Sent</option>
                         <option value="proposalSent">Proposal Sent</option>
@@ -485,8 +528,9 @@
                     </select>
                 </div>
 
-                
-            </div><div class="absolute right-0 px-6 py-10 ">
+
+            </div>
+            <div class="absolute right-0 px-6 py-10 ">
                 <button id="submit-lead" class="bg-purple-600 text-white py-2 px-4 rounded">Submit</button>
                 <button id="cancel-lead" class="bg-gray-200 text-black py-2 px-4 rounded">Cancel</button>
             </div>
