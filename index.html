@@ -10,6 +10,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -157,11 +159,34 @@
             .then(data => {
                 document.getElementById('dashboard').innerHTML = data;
 
+                //starred the row
+                document.querySelectorAll('.star-checkbox i').forEach(starIcon => {
+                    starIcon.addEventListener('click', function () {
+                        const checkboxId = `star-checkbox-${this.dataset.id}`;
+                        const checkbox = document.getElementById(checkboxId);
+                        checkbox.checked = !checkbox.checked;
+                        this.classList.toggle('checked', checkbox.checked);
+                        // Save checkbox state to local storage temp features it will come from backend
+                        localStorage.setItem(checkboxId, checkbox.checked ? "checked" : "");
+                    });
+
+                    // Load checkbox state from local storage on page load
+                    const checkboxId = `star-checkbox-${starIcon.dataset.id}`;
+                    const checkbox = document.getElementById(checkboxId);
+                    if (localStorage.getItem(checkboxId) === "checked") {
+                        checkbox.checked = true;
+                        starIcon.classList.add('checked');
+                    }
+                });
+
+                //add lead form button
 
                 document.getElementById('add-lead-button').addEventListener('click', function () {
                     document.getElementById('lead-form').classList.toggle('hidden');
                     document.getElementById('lead-table').classList.toggle('hidden');
                 });
+
+                //submit the form
                 document.getElementById('submit-lead').addEventListener('click', function () {
                     event.preventDefault();
                     document.getElementById('lead-form').classList.add('hidden');
@@ -169,12 +194,15 @@
 
                     document.getElementById('lead-form').reset();
                 });
+
+                //cancel the form
                 document.getElementById('cancel-lead').addEventListener('click', function () {
                     event.preventDefault();
                     document.getElementById('lead-form').classList.add('hidden');
                     document.getElementById('lead-table').classList.remove('hidden');
                 });
 
+                //additional email field
                 document.getElementById('addEmailBtn').addEventListener('click', function () {
                     const emailInputContainer = document.getElementById('emailInputContainer');
                     const numEmailInputs = emailInputContainer.querySelectorAll('.email-input-wrapper').length;
@@ -200,6 +228,7 @@
                 });
 
 
+                //additional phone field
                 document.getElementById('addPhoneBtn').addEventListener('click', function () {
                     const inputContainer = document.getElementById('inputContainer');
                     const numInputs = inputContainer.querySelectorAll('.phone-input-wrapper').length;
@@ -229,7 +258,7 @@
                 // on hover next follow-up
                 const rows = document.querySelectorAll('tbody tr');
                 rows.forEach(row => {
-                    const followUpCell = row.querySelector('td:nth-child(8)');
+                    const followUpCell = row.querySelector('td:nth-child(9)');
                     const popup = followUpCell.querySelector('.popup-info');
                     followUpCell.addEventListener('mouseenter', () => {
                         popup.classList.remove('hidden');
@@ -250,10 +279,10 @@
                         const row = div.closest('tr');
                         const name = row.querySelector('th .fullName').innerText;
                         const email = row.children[3].innerText;
-                        const phone = row.children[4].innerText;
+                        const phone = row.children[5].innerText;
                         const linkedin = row.querySelector('img').src;
                         const message = row.children[1].innerText;
-                        const followUp = row.children[7].innerText;
+                        const followUp = row.children[8].innerText;
 
                         document.getElementById('popup-header-name').innerText = name;
                         document.getElementById('popup-name').innerText = name;
@@ -291,7 +320,7 @@
                 });
 
 
-                // add note input function
+                // add note message function
                 document.getElementById('add-note-button').addEventListener('click', function () {
                     const noteInput = document.getElementById('note-input');
                     const noteText = noteInput.value.trim();
@@ -322,6 +351,8 @@
                 });
             });
 
+
+        //toggle sidebar function    
         document.getElementById('line-right').addEventListener('click', function () {
             const sidebar = document.getElementById('sidebar');
             const dashboard = document.getElementById('dashboard');
