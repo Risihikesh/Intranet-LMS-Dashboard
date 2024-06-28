@@ -117,12 +117,12 @@
     <div id="navbar"></div>
     <div class="flex flex-row ">
         <!-- Sidebar -->
-        <div id="sidebar" class="flex pl-4 flex-col w-2/12 mt-14"></div>
+        <div id="sidebar" class="flex pl-4 flex-col w-2/12 mt-10"></div>
 
         <!-- Horizontol line -->
         <div id="toggle-line"
             class=" flex rotate-90 ml-1  items-center mt-14 justify-center relative border w-0.5 h-fit border-gray-300 bg-gray-300">
-            <div id="line-right"
+            <button id="line-right"
                 class=" absolute top-10 w-8 h-8 bg-white border flex items-center justify-center rounded-full ">
                 <svg width="34" height="34" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect width="24" height="24" transform="matrix(-1 0 0 -1 24 24)" fill="white" fill-opacity="0.01" />
@@ -130,7 +130,7 @@
                         d="M13.706 14.302C13.7992 14.3939 13.8732 14.5035 13.9237 14.6242C13.9742 14.745 14.0002 14.8746 14.0002 15.0055C14.0002 15.1364 13.9742 15.266 13.9237 15.3868C13.8732 15.5076 13.7992 15.6171 13.706 15.709C13.5169 15.8956 13.262 16.0002 12.9965 16.0002C12.7309 16.0002 12.476 15.8956 12.287 15.709L9.32195 12.769C9.21976 12.6677 9.13864 12.5471 9.08329 12.4143C9.02793 12.2814 8.99943 12.1389 8.99943 11.995C8.99943 11.8511 9.02793 11.7086 9.08329 11.5758C9.13864 11.4429 9.21976 11.3223 9.32195 11.221L12.277 8.29101C12.466 8.10414 12.7211 7.99934 12.987 7.99934C13.2528 7.99934 13.5079 8.10414 13.697 8.29101C13.7902 8.38293 13.8642 8.49245 13.9147 8.61322C13.9652 8.73399 13.9912 8.8636 13.9912 8.99451C13.9912 9.12542 13.9652 9.25503 13.9147 9.3758C13.8642 9.49657 13.7902 9.60609 13.697 9.69801L11.379 11.995L13.706 14.302Z"
                         fill="#42526E" />
                 </svg>
-            </div>
+            </button>
         </div>
         <!-- DASHBOARDS -->
         <div class=" w-full px-6  mt-14">
@@ -150,6 +150,19 @@
             .then(response => response.text())
             .then(data => {
                 document.getElementById('sidebar').innerHTML = data;
+
+                document.getElementById('up-arrow-leave').addEventListener('click', function () {
+                    document.getElementById('leave-dropdown-menu').classList.add('hidden');
+                    document.getElementById('up-arrow-leave').classList.add('hidden');
+                    document.getElementById('down-arrow-leave').classList.remove('hidden');
+                });
+
+                document.getElementById('down-arrow-leave').addEventListener('click', function () {
+                    document.getElementById('leave-dropdown-menu').classList.remove('hidden');
+                    document.getElementById('up-arrow-leave').classList.remove('hidden');
+                    document.getElementById('down-arrow-leave').classList.add('hidden');
+                });
+
             });
 
 
@@ -367,6 +380,7 @@
             }
         });
 
+        
     </script>
 </body>
 

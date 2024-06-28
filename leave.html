@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leave Calendar</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+        .leave {
+            background-color: lightcoral;
+            color: white;
+        }
+        .calendar-container {
+            margin: 20px 0;
+        }
+        .week-selector {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="calendar-container">
+        <div class="week-selector">
+            <input type="date" id="week-start" onchange="showWeekFromDate()">
+        </div>
+        <table id="leave-calendar">
+            <thead>
+                <tr id="calendar-headers">
+                    <th>Employee Name</th>
+                    <th>Mon</th>
+                    <th>Tue</th>
+                    <th>Wed</th>
+                    <th>Thu</th>
+                    <th>Fri</th>
+                    <th>Sat</th>
+                    <th>Sun</th>
+                </tr>
+            </thead>
+            <tbody id="calendar-body">
+                <tr data-employee="Rishi">
+                    <td>Rishi</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr data-employee="Isanur">
+                    <td>Isanur</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <!-- Add more rows for additional employees as needed -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        const leaveData = {
+            "Rishi": [
+                { type: "Sick Leave", start: new Date("2024-01-01"), end: new Date("2024-01-03") }
+            ],
+            "Isanur": [
+                { type: "Sick Leave", start: new Date("2024-06-01"), end: new Date("2024-06-01") },
+                { type: "Sick Leave", start: new Date("2024-06-21"), end: new Date("2024-06-27") }
+            ]
+        };
+
+        function showWeekFromDate() {
+            const dateInput = document.getElementById("week-start").value;
+            const selectedDate = new Date(dateInput);
+            const startOfWeek = getStartOfWeek(selectedDate);
+            updateCalendarHeaders(startOfWeek);
+            updateCalendarBody(startOfWeek);
+        }
+
+        function getStartOfWeek(date) {
+            const day = date.getDay();
+            const diff = date.getDate() - day + (day === 0 ? -6 : 1);
+            return new Date(date.setDate(diff));
+        }
+
+        function updateCalendarHeaders(startDate) {
+            const headersRow = document.getElementById("calendar-headers").getElementsByTagName('th');
+            for (let i = 1; i <= 7; i++) {
+                const currentDate = new Date(startDate);
+                currentDate.setDate(startDate.getDate() + i - 1);
+                headersRow[i].innerHTML = `${currentDate.toDateString().slice(0, 3)} (${currentDate.toISOString().split('T')[0]})`;
+            }
+        }
+
+        function updateCalendarBody(startDate) {
+            const body = document.getElementById("calendar-body");
+            const rows = body.getElementsByTagName("tr");
+            for (let row of rows) {
+                const employee = row.getAttribute("data-employee");
+                const cells = row.getElementsByTagName("td");
+                for (let i = 1; i <= 7; i++) {
+                    const currentDate = new Date(startDate);
+                    currentDate.setDate(startDate.getDate() + i - 1);
+                    const leaveInfo = getLeaveInfo(employee, currentDate);
+                    if (leaveInfo) {
+                        cells[i].classList.add('leave');
+                        cells[i].innerHTML = leaveInfo.type;
+                    } else {
+                        cells[i].classList.remove('leave');
+                        cells[i].innerHTML = '';
+                    }
+                }
+            }
+        }
+
+        function getLeaveInfo(employee, date) {
+            if (!leaveData[employee]) return null;
+            for (let leave of leaveData[employee]) {
+                if (date >= leave.start && date <= leave.end) {
+                    return leave;
+                }
+            }
+            return null;
+        }
+
+        function initializeCalendar() {
+            const currentDate = new Date();
+            const startOfWeek = getStartOfWeek(currentDate);
+            const dateInput = document.getElementById("week-start");
+            dateInput.value = startOfWeek.toISOString().split('T')[0];
+            updateCalendarHeaders(startOfWeek);
+            updateCalendarBody(startOfWeek);
+        }
+
+        // Initialize the calendar with the current week on page load
+        window.onload = initializeCalendar;
+    </script>
+</body>
+</html>
