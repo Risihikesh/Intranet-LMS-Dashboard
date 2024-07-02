@@ -138,7 +138,71 @@
         </div>
     </div>
     <script>
-
+        const leaveData = [
+            {
+                "employee": "Isanur Sardar",
+                "leave_date": "20/05/2024 - 25/05/2024",
+                "leave_type": "Sick Leave",
+                "status": "Approved",
+                "notes": "Emergency"
+            },
+            {
+                "employee": "Anushree Das",
+                "leave_date": "01/07/2024 - 05/07/2024",
+                "leave_type": "Vacation",
+                "status": "Pending",
+                "notes": "-"
+            },
+            {
+                "employee": "Mrinal Das",
+                "leave_date": "15/06/2024 - 20/06/2024",
+                "leave_type": "Casual Leave",
+                "status": "Approved",
+                "notes": "-"
+            },
+            {
+                "employee": "Sumit Kumar",
+                "leave_date": "10/08/2024 - 15/08/2024",
+                "leave_type": "Personal Leave",
+                "status": "Rejected",
+                "notes": "-"
+            },
+            {
+                "employee": "Dev Patil",
+                "leave_date": "22/07/2024 - 25/07/2024",
+                "leave_type": "Sick Leave",
+                "status": "Approved",
+                "notes": "I am writing to inform you that I am not feeling well and will be taking a sick leave starting today. I will keep you updated on my condition and hope to return to work as soon as possible."
+            },
+            {
+                "employee": "Saurabh Bassi",
+                "leave_date": "12/09/2024 - 14/09/2024",
+                "leave_type": "Vacation",
+                "status": "Pending",
+                "notes": "-"
+            },
+            {
+                "employee": "Sayan Bhattacharjee",
+                "leave_date": "22/07/2024 - 25/07/2024",
+                "leave_type": "Sick Leave",
+                "status": "Approved",
+                "notes": "-"
+            },
+            {
+                "employee": "Vaibhavi Bhurane",
+                "leave_date": "10/07/2024 - 17/07/2024",
+                "leave_type": "Vacation",
+                "status": "Approved",
+                "notes": "-"
+            },
+            {
+                "employee": "Vaijayee Jadhav",
+                "leave_date": "02/07/2024 - 05/07/2024",
+                "leave_type": "Sick Leave",
+                "status": "Approved",
+                "notes": "I am writing to inform you that I am not feeling well and will be taking a sick leave starting today. I will keep you updated on my condition and hope to return to work as soon as possible."
+            },
+        ];
 
         fetch('navbar.html')
             .then(response => response.text())
@@ -151,17 +215,72 @@
             .then(data => {
                 document.getElementById('sidebar').innerHTML = data;
 
-                document.getElementById('up-arrow-leave').addEventListener('click', function () {
-                    document.getElementById('leave-dropdown-menu').classList.add('hidden');
-                    document.getElementById('up-arrow-leave').classList.add('hidden');
-                    document.getElementById('down-arrow-leave').classList.remove('hidden');
+                //leave dropdown menu
+                document.getElementById('leave-section').addEventListener('click', function () {
+                    const dropdownMenu = document.getElementById('leave-dropdown-menu');
+                    const upArrow = document.getElementById('up-arrow-leave');
+                    const downArrow = document.getElementById('down-arrow-leave');
+                    //leave up and down icon
+                    if (dropdownMenu.classList.contains('hidden')) {
+                        dropdownMenu.classList.remove('hidden');
+                        upArrow.classList.remove('hidden');
+                        downArrow.classList.add('hidden');
+                    } else {
+                        dropdownMenu.classList.add('hidden');
+                        upArrow.classList.add('hidden');
+                        downArrow.classList.remove('hidden');
+                    }
                 });
 
-                document.getElementById('down-arrow-leave').addEventListener('click', function () {
-                    document.getElementById('leave-dropdown-menu').classList.remove('hidden');
-                    document.getElementById('up-arrow-leave').classList.remove('hidden');
-                    document.getElementById('down-arrow-leave').classList.add('hidden');
+                //inject leavetable in dom
+                document.getElementById('sidebar-leave-table').addEventListener('click', function () {
+                    fetch('leaveTable.html')
+                        .then(response => response.text())
+                        .then(data => {
+                            document.getElementById('dashboard').innerHTML = data;
+
+
+                            const tbody = document.getElementById('leave-tbody');
+
+                            leaveData.forEach(leave => {
+                                const row = document.createElement('tr');
+                                row.classList.add('bg-white', 'border-b', 'hover:bg-gray-50');
+
+                                row.innerHTML = `
+                                    <th scope="row" class=" font-semibold cursor-pointer text-sm px-4 py-4 text-gray-900">
+                                                ${leave.employee}
+                                    </th>
+                                    <td class="px-4 py-4">${leave.leave_date}</td>
+                                    <td class="px-4 py-4">${leave.leave_type}</td>
+                                    <td class="px-4 py-4">
+                                        <div class="flex items-center justify-center leading-5  text-xs ${getStatusClasses(leave.status)} rounded font-semibold">
+                                            ${leave.status}
+                                        </div>
+                                    </td>
+                                    <td class="px-4 py-4">${leave.notes}</td>
+                                `;
+
+                                tbody.appendChild(row);
+                            });
+
+                            function getStatusClasses(status) {
+                                switch (status) {
+                                    case 'Approved':
+                                        return 'bg-green-100  text-green-600';
+                                    case 'Pending':
+                                        return 'bg-yellow-100  text-yellow-600';
+                                    case 'Rejected':
+                                        return 'bg-red-100  text-red-600';
+                                    default:
+                                        return '';
+                                }
+                            }
+
+
+                        })
+                        .catch(error => console.error('Error loading leaveTable.html:', error));
                 });
+
 
             });
 
@@ -380,7 +499,7 @@
             }
         });
 
-        
+
     </script>
 </body>
 
