@@ -112,6 +112,63 @@
 
 
 
+        <div id="leave-popup"
+        class="fixed hidden inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+        <div class=" w-3/12 rounded-lg bg-white shadow-lg border-r border-gray-200 p-4 relative ">
+        <button id="close-leave-popup" class=" absolute top-0 right-3 text-4xl hover:text-gray-700">&times;</button>
+        <div class=" flex flex-col gap-2">
+            <div id="leave-details" class=" flex flex-col gap-3">
+                <h2 class="text-sm font-semibold pt-2 text-black">Leave Request</h2>
+
+                <div class="font-medium text-sm flex flex-col" style="color: rgba(52, 64, 84, 1);">Name
+                    <span id="l-popup-name" class="text-sm font-normal" style="color: rgba(71, 84, 103, 1);"></span>
+                </div>
+                <div class="font-medium text-sm flex flex-col" style="color: rgba(52, 64, 84, 1);">Date
+                    <span id="l-popup-date" class="text-sm font-normal" style="color: rgba(71, 84, 103, 1);"></span>
+                </div>
+                <div class="font-medium text-sm flex flex-col" style="color: rgba(52, 64, 84, 1);">Leave Type
+                    <span id="l-popup-type" class="text-sm font-normal" style="color: rgba(71, 84, 103, 1);"></span>
+                </div>
+                <div class="font-medium text-sm flex flex-col" style="color: rgba(52, 64, 84, 1);">Note
+                    <span id="l-popup-notes" class="text-sm font-normal" style="color: rgba(71, 84, 103, 1);"></span>
+                </div>
+                
+            
+            </div>
+
+           <!-- approved or reject checkbox -->
+           <div class="flex flex-col gap-4 mt-3">
+            <label class="flex items-center gap-1 cursor-pointer">
+                <input type="radio" class="hidden" name="approval" id="approval">
+                <span class="h-4 w-4 border border-purple-600 rounded-full flex items-center justify-center"
+                    id="approval-radio"></span>
+                Approved
+            </label>
+            <label class="flex items-center gap-1 cursor-pointer">
+                <input type="radio" class="hidden" name="approval" id="rejection">
+                <span class="h-4 w-4 border border-purple-600 rounded-full flex items-center justify-center"
+                    id="rejection-radio"></span>
+                Reject
+            </label>
+        </div>
+            
+        </div>
+
+     
+
+        <div class="flex flex-row gap-2 pt-4 justify-between ">
+            <button class="border border-slate-600 rounded px-2">Cancel</button>
+            <button id="confirm-button"  class="bg-purple-600 text-white rounded px-2">
+             Confirm
+            </button>
+        </div>
+        </div>
+
+        </div>
+
+
+
+
 
     </div>
 

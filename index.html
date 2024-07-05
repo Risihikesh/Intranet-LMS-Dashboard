@@ -43,6 +43,17 @@
             display: none;
         }
 
+        input[type="radio"]:checked+#approval-radio::after,
+        input[type="radio"]:checked+#rejection-radio::after {
+            content: '';
+            display: block;
+            width: 70%;
+            height: 70%;
+            background-color: #8a3ab9;
+            /* Purple color */
+            border-radius: 50%;
+        }
+
         /*
         .flex {
             display: flex;
@@ -247,13 +258,13 @@
                                 row.classList.add('bg-white', 'border-b', 'hover:bg-gray-50');
 
                                 row.innerHTML = `
-                                    <th scope="row" class=" font-semibold cursor-pointer text-sm px-4 py-4 text-gray-900">
-                                                ${leave.employee}
+                                    <th scope="row" class="fullNamel font-semibold cursor-pointer text-sm px-4 py-4 text-gray-900">
+                                        ${leave.employee}
                                     </th>
                                     <td class="px-4 py-4">${leave.leave_date}</td>
                                     <td class="px-4 py-4">${leave.leave_type}</td>
                                     <td class="px-4 py-4">
-                                        <div class="flex items-center justify-center leading-5  text-xs ${getStatusClasses(leave.status)} rounded font-semibold">
+                                        <div class="flex items-center justify-center leading-5 text-xs ${getStatusClasses(leave.status)} rounded font-semibold">
                                             ${leave.status}
                                         </div>
                                     </td>
@@ -266,18 +277,43 @@
                             function getStatusClasses(status) {
                                 switch (status) {
                                     case 'Approved':
-                                        return 'bg-green-100  text-green-600';
+                                        return 'bg-green-100 text-green-600';
                                     case 'Pending':
-                                        return 'bg-yellow-100  text-yellow-600';
+                                        return 'bg-yellow-100 text-yellow-600';
                                     case 'Rejected':
-                                        return 'bg-red-100  text-red-600';
+                                        return 'bg-red-100 text-red-600';
                                     default:
                                         return '';
                                 }
                             }
 
+                            const fullNameDivsl = document.querySelectorAll('.fullNamel');
+                            const lpopup = document.getElementById('leave-popup');
+                            const closeLeavePopup = document.getElementById('close-leave-popup');
 
+                            fullNameDivsl.forEach(div => {
+                                div.addEventListener('click', () => {
+                                    const row = div.closest('tr');
+                                    const name = row.querySelector('.fullNamel').innerText;
+                                    const leaveDate = row.children[1].innerText;
+                                    const leaveType = row.children[2].innerText;
+                                    const notes = row.children[4].innerText;
+
+                                    document.getElementById('l-popup-name').innerText = name;
+                                    document.getElementById('l-popup-date').innerText = leaveDate;
+                                    document.getElementById('l-popup-type').innerText = leaveType;
+                                    document.getElementById('l-popup-notes').innerText = notes;
+
+                                    lpopup.classList.remove('hidden');
+                                });
+                            });
+
+                            closeLeavePopup.addEventListener('click', () => {
+                                lpopup.classList.add('hidden');
+                            });
                         })
+
+
                         .catch(error => console.error('Error loading leaveTable.html:', error));
                 });
 
