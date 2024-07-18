@@ -1,69 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Leave Calendar</title>
     <style>
         table {
             width: 100%;
             border-collapse: collapse;
+            position: relative;
         }
-
-        th,
-        td {
+        th, td {
             border: 1px solid black;
             padding: 8px;
             text-align: center;
+            position: relative;
         }
-
         .leave {
             background-color: lightcoral;
-            /* position: relative; */
-            color: black;
-            padding: 2px; 
-        margin: 2px; /
-            
+            color: white;
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1;
         }
-
-        .sick-leave {
-            background-color: #EA977E;
-          
+        .leave span {
+            z-index: 2;
         }
-
-        .emergency {
-            background-color: #D9EAFF;
-            border-left: 2px solid #719ACB;
-           
-          
-        }
-
-        .casual-leave {
-            background-color: #E6D9F7;
-           
-        }
-
         .calendar-container {
             margin: 20px 0;
         }
-
         .week-selector {
             margin-bottom: 20px;
         }
     </style>
 </head>
-
 <body>
     <div class="calendar-container">
         <div class="week-selector">
             <input type="date" id="week-start" onchange="showWeekFromDate()">
         </div>
-        <table id="leave-calendar" class="w-full text-sm text-left text-gray-500">
+        <table id="leave-calendar">
             <thead>
                 <tr id="calendar-headers">
-                    <th>Employees</th>
+                    <th>Employee Name</th>
                     <th>Mon</th>
                     <th>Tue</th>
                     <th>Wed</th>
@@ -94,6 +78,7 @@
                     <td></td>
                     <td></td>
                 </tr>
+                <!-- Add more rows for additional employees as needed -->
             </tbody>
         </table>
     </div>
@@ -101,14 +86,12 @@
     <script>
         const leaveData = {
             "Rishi": [
-                { type: "Sick Leave", leave_date: "22/07/2024 - 25/07/2024", notes: "fever" },
-                { type: "Casual Leave", leave_date: "08/07/2024 - 09/07/2024", notes: "personal work" } 
+                { type: "Sick Leave", leave_date: "/07/2024 - 25/07/2024", notes: "fever" }
             ],
             "Isanur": [
                 { type: "Sick Leave", leave_date: "05/07/2024 - 06/07/2024", notes: "fever" },
-                { type: "Emergency", leave_date: "10/07/2024 - 13/07/2024", notes: "-" },
-                { type: "Sick Leave", leave_date: "14/07/2024 - 16/07/2024", notes: "-" },
-                { type: "Casual Leave", leave_date: "02/08/2024", notes: "urgent work" } 
+                { type: "Sick Leave", leave_date: "08/07/2024 - 08/07/2024", notes: "-" },
+                // { type: "Sick Leave", leave_date: "14/07/2024 - 15/07/2024", notes: "-" }
             ]
         };
 
@@ -131,8 +114,7 @@
             for (let i = 1; i <= 7; i++) {
                 const currentDate = new Date(startDate);
                 currentDate.setDate(startDate.getDate() + i - 1);
-                const formattedDate = currentDate.toLocaleDateString('en-IN', { day: 'numeric', month: 'numeric', year: 'numeric' });
-                headersRow[i].innerHTML = `${currentDate.toDateString().slice(0, 3)} (${formattedDate})`;
+                headersRow[i].innerHTML = `${currentDate.toDateString().slice(0, 3)} (${currentDate.toISOString().split('T')[0]})`;
             }
         }
 
@@ -143,54 +125,47 @@
                 const employee = row.getAttribute("data-employee");
                 const cells = row.getElementsByTagName("td");
                 for (let i = 1; i <= 7; i++) {
-                    const currentDate = new Date(startDate);
-                    currentDate.setDate(startDate.getDate() + (i - 1));
-                    const leaveInfo = getLeaveInfo(employee, currentDate);
-                    if (leaveInfo) {
-                        cells[i].classList.add('leave');
-                        if (leaveInfo.type === 'Sick Leave') {
-                            cells[i].classList.add('sick-leave');
-                        } else if (leaveInfo.type === 'Emergency') {
-                            cells[i].classList.add('emergency');
-                        } else if (leaveInfo.type === 'Casual Leave') {
-                            cells[i].classList.add('casual-leave');
+                    cells[i].innerHTML = '';  // Clear previous content
+                    cells[i].style.position = 'relative';  // Ensure each cell has relative positioning
+                }
+                if (leaveData[employee]) {
+                    for (let leave of leaveData[employee]) {
+                        const [start, end] = leave.leave_date.split(" - ").map(d => {
+                            const [day, month, year] = d.split('/');
+                            return new Date(year, month - 1, day);
+                        });
+                        const startIndex = Math.max(1, Math.ceil((start - startDate) / (1000 * 60 * 60 * 24)) + 1);
+                        const endIndex = Math.min(7, Math.ceil((end - startDate) / (1000 * 60 * 60 * 24)) + 1);
+
+                        if (startIndex <= endIndex) {
+                            const leaveDiv = document.createElement('div');
+                            leaveDiv.className = 'leave';
+                            leaveDiv.style.gridColumnStart = startIndex;
+                            leaveDiv.style.gridColumnEnd = endIndex + 1;
+                            leaveDiv.innerHTML = `<span>${leave.type}</span>`;
+
+                            // Calculate the width of the span
+                            const totalWidth = (endIndex - startIndex + 1) * cells[startIndex].offsetWidth;
+                            leaveDiv.style.width = `${totalWidth}px`;
+
+                            cells[startIndex].appendChild(leaveDiv);
                         }
-                        cells[i].innerHTML = leaveInfo.type;
-                    } else {
-                        cells[i].classList.remove('leave', 'sick-leave', 'emergency', 'casual-leave');
-                        cells[i].innerHTML = '';
                     }
                 }
             }
-        }
-
-
-        function getLeaveInfo(employee, date) {
-            if (!leaveData[employee]) return null;
-            for (let leave of leaveData[employee]) {
-                const [start, end] = leave.leave_date.split(" - ").map(d => {
-                    const [day, month, year] = d.split('/');
-                    return new Date(year, month - 1, day);
-                });
-                if (date >= start && date <= end) {
-                    return leave;
-                }
-            }
-            return null;
         }
 
         function initializeCalendar() {
             const currentDate = new Date();
             const startOfWeek = getStartOfWeek(currentDate);
             const dateInput = document.getElementById("week-start");
-            dateInput.value = startOfWeek.toLocaleDateString('en-IN', { year: 'numeric', month: 'numeric', day: 'numeric' });
+            dateInput.value = startOfWeek.toISOString().split('T')[0];
             updateCalendarHeaders(startOfWeek);
             updateCalendarBody(startOfWeek);
         }
 
-        
+        // Initialize the calendar with the current week on page load
         window.onload = initializeCalendar;
     </script>
 </body>
-
 </html>

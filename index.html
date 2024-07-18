@@ -365,10 +365,10 @@
 
                                 // Initialize the date range picker
                                 $('#apply-popup-daterange').daterangepicker({
-                                    opens: 'left',  
-                                    autoApply: true,  
+                                    opens: 'left',
+                                    autoApply: true,
                                     locale: {
-                                        format: 'YYYY-MM-DD'  
+                                        format: 'YYYY-MM-DD'
                                     }
                                 });
                             });
@@ -384,19 +384,19 @@
                                 document.getElementById('apply-leave-form').reset();  // Reset the form on cancel
                             });
 
-                          
-                            document.getElementById('apply-leave-form').addEventListener('submit', function (event) {
-                                event.preventDefault();  
 
-                             
+                            document.getElementById('apply-leave-form').addEventListener('submit', function (event) {
+                                event.preventDefault();
+
+
                                 const formData = new FormData(this);
                                 const dateRange = formData.get('daterange');
-                                const isHalfDay = document.getElementById('halfday-checkbox').checked; 
+                                const isHalfDay = document.getElementById('halfday-checkbox').checked;
                                 const leaveType = formData.get('leavetype');
                                 const notes = formData.get('notes');
 
-                             
-                                console.log(dateRange,leaveType,notes,isHalfDay);
+
+                                console.log(dateRange, leaveType, notes, isHalfDay);
 
                                 // Reset the form after submission
                                 this.reset();
@@ -408,6 +408,41 @@
                         .catch(error => console.error('Error loading myleaveTable.html:', error));
 
                 });
+
+
+
+                //leave calendar
+                document.getElementById('sidebar-leave-calendar').addEventListener('click', function () {
+                    fetch('leaveCalendar.html')
+                        .then(response => response.text())
+                        .then(data => {
+                            const dashboard = document.getElementById('dashboard');
+                            dashboard.innerHTML = data;
+
+
+                            const scripts = dashboard.querySelectorAll('script');
+                            scripts.forEach(script => {
+                                const newScript = document.createElement('script');
+                                newScript.textContent = script.textContent;
+                                document.body.appendChild(newScript);
+                            });
+
+                            // Ensure the calendar initializes after a short delay
+                            setTimeout(() => {
+                                initializeCalendar();
+                            }, 500);
+                        })
+                        .catch(error => console.error('Error loading testing2.html:', error));
+                });
+
+                function initializeCalendar() {
+                    const today = new Date().toISOString().split('T')[0];
+                    document.getElementById('week-start').value = today;
+                    showWeekFromDate();
+                }
+
+
+
 
             });
 

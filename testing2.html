@@ -1,0 +1,282 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leave Calendar</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="leaveCalendar.css">
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div>
+        <div class="calendar-container flex flex-col gap-6">
+            <div>
+                <div class="pt-4 font-normal font-inter text-sm leading-5 text-gray-600">Employees / Leaves / Leave
+                    Calendar</div>
+                <div class="font-medium text-2xl flex justify-between text-gray-900">
+                    Leave Calendar
+                    <div class="h-8 flex flex-row gap-2">
+                        <button id=""
+                            class="font-medium font-inter px-2 text-sm rounded text-gray-200  h-full bg-purple-600">+ Add
+                            Holiday</button>
+                        <span class="items-center justify-center h-8 w-8 rounded text-center bg-gray-200">...</span>
+                    </div>
+                </div>
+                <div class=" flex flex-row justify-between mt-6">
+                    <div class="w-1/3 h-8 flex items-center border border-gray-300  rounded mr-5"
+                        style="background: rgba(16, 24, 40, 0.05);">
+                        <div class="pl-3">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M13.6967 12.5708L16.98 15.9125C17.1271 16.0715 17.2065 16.2815 17.2015 16.498C17.1964 16.7145 17.1072 16.9206 16.9528 17.0725C16.7984 17.2244 16.5909 17.3102 16.3744 17.3117C16.1578 17.3133 15.9491 17.2305 15.7925 17.0808L12.5109 13.7425C11.2447 14.6964 9.66328 15.1334 8.08694 14.9652C6.51059 14.7969 5.05708 14.036 4.02072 12.8363C2.98436 11.6367 2.44259 10.0881 2.50511 8.50399C2.56763 6.91993 3.22978 5.41881 4.35747 4.3046C5.48516 3.19038 6.99412 2.54632 8.57883 2.50284C10.1635 2.45936 11.7055 3.0197 12.8926 4.07041C14.0797 5.12111 14.8232 6.58366 14.9725 8.16192C15.1218 9.74017 14.6657 11.3162 13.6967 12.5708ZM8.75004 13.3333C9.96562 13.3333 11.1314 12.8505 11.9909 11.9909C12.8505 11.1314 13.3334 9.96558 13.3334 8.75C13.3334 7.53443 12.8505 6.36864 11.9909 5.5091C11.1314 4.64956 9.96562 4.16667 8.75004 4.16667C7.53446 4.16667 6.36868 4.64956 5.50913 5.5091C4.64959 6.36864 4.16671 7.53443 4.16671 8.75C4.16671 9.96558 4.64959 11.1314 5.50913 11.9909C6.36868 12.8505 7.53446 13.3333 8.75004 13.3333Z"
+                                    fill="#94969C" />
+                            </svg>
+                        </div>
+                        <input class="w-3/4 pl-3  border-none text-gray-400 outline-none" placeholder="Search employee"
+                            style="background: rgba(16, 24, 40, 0);" />
+                    </div>
+
+                    <div class="flex flex-row gap-3 items-center">
+                        <div class="bg-gray-100 h-8 flex flex-row gap-1 px-2 rounded text-gray-600">
+                            Department
+                            <svg id="" class="cursor-pointer" width="28" height="28" viewBox="0 0 24 24"
+                                    fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="24" height="24" transform="matrix(-1 0 0 -1 24 24)" fill="white"
+                                        fill-opacity="0.01" />
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M14.302 10.294C14.3939 10.201 14.5035 10.1268 14.6242 10.0763C14.745 10.0258 14.8746 9.99982 15.0055 9.99982C15.1364 9.99982 15.266 10.0258 15.3868 10.0763C15.5076 10.1268 15.6171 10.201 15.709 10.294C15.8956 10.4831 16.0002 10.738 16.0002 11.0035C16.0002 11.2691 15.8956 11.524 15.709 11.713L12.769 14.678C12.6677 14.7802 12.5471 14.8613 12.4143 14.9167C12.2814 14.9721 12.1389 15.0006 11.995 15.0006C11.8511 15.0006 11.7086 14.9721 11.5758 14.9167C11.4429 14.8613 11.3223 14.7802 11.221 14.678L8.29101 11.723C8.10414 11.534 7.99934 11.2789 7.99934 11.013C7.99934 10.7472 8.10414 10.4921 8.29101 10.303C8.38293 10.2098 8.49245 10.1358 8.61322 10.0853C8.73399 10.0348 8.8636 10.0088 8.99451 10.0088C9.12542 10.0088 9.25503 10.0348 9.3758 10.0853C9.49657 10.1358 9.60609 10.2098 9.69801 10.303L11.995 12.621L14.302 10.294Z"
+                                        fill="#6941C6" />
+                                </svg>
+                        </div>
+
+                        <div class="flex flex-row  h-8 bg-gray-100 gap-1 bg-gray-100 px-2 rounded text-gray-600">
+                             Leave Type
+                            
+                                <svg id="" class=" cursor-pointer" width="28" height="28" viewBox="0 0 24 24"
+                                    fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="24" height="24" transform="matrix(-1 0 0 -1 24 24)" fill="white"
+                                        fill-opacity="0.01" />
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M14.302 10.294C14.3939 10.201 14.5035 10.1268 14.6242 10.0763C14.745 10.0258 14.8746 9.99982 15.0055 9.99982C15.1364 9.99982 15.266 10.0258 15.3868 10.0763C15.5076 10.1268 15.6171 10.201 15.709 10.294C15.8956 10.4831 16.0002 10.738 16.0002 11.0035C16.0002 11.2691 15.8956 11.524 15.709 11.713L12.769 14.678C12.6677 14.7802 12.5471 14.8613 12.4143 14.9167C12.2814 14.9721 12.1389 15.0006 11.995 15.0006C11.8511 15.0006 11.7086 14.9721 11.5758 14.9167C11.4429 14.8613 11.3223 14.7802 11.221 14.678L8.29101 11.723C8.10414 11.534 7.99934 11.2789 7.99934 11.013C7.99934 10.7472 8.10414 10.4921 8.29101 10.303C8.38293 10.2098 8.49245 10.1358 8.61322 10.0853C8.73399 10.0348 8.8636 10.0088 8.99451 10.0088C9.12542 10.0088 9.25503 10.0348 9.3758 10.0853C9.49657 10.1358 9.60609 10.2098 9.69801 10.303L11.995 12.621L14.302 10.294Z"
+                                        fill="#6941C6" />
+                                </svg>
+                            
+                        </div>
+                        <div class="bg-gray-100 h-8 rounded" >
+                            <input class="week-selector bg-gray-100 text-gray-600 rounded px-2" type="date" id="week-start" onchange="showWeekFromDate()">
+                        </div>
+                        <div class=" bg-gray-100 flex flex-row h-8 rounded px-4 items-center font-medium text-gray-600">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <rect width="24" height="24" fill="white" fill-opacity="0.01" />
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M6.99999 13H17L18 11H5.99999L6.99999 13ZM3.99299 6C3.44499 6 3.20299 6.405 3.44699 6.895L3.99999 8H20L20.553 6.895C20.8 6.4 20.555 6 20.007 6H3.99299ZM10.778 17.556C10.8509 17.6861 10.9561 17.7953 11.0834 17.8731C11.2107 17.9508 11.3559 17.9945 11.505 18H12.495C12.774 18 13.1 17.8 13.222 17.556L14 16H9.99999L10.778 17.556Z"
+                                    fill="#182230" />
+                            </svg>
+                            Filter
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div>
+                <table id="leave-calendar">
+                    <thead>
+                        <tr id="calendar-headers">
+                            <th>Employees</th>
+                            <th>M</th>
+                            <th>Tue</th>
+                            <th>Wed</th>
+                            <th>Thu</th>
+                            <th>Fri</th>
+                            <th>Sat</th>
+                            <th>Sun</th>
+                        </tr>
+                    </thead>
+                    <tbody id="calendar-body">
+                        <!-- Employee rows will be dynamically added here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        console.log('Script in testing2.html is running.');
+        const leaveCalender = [
+            { "employee": "Rishi", "leave_date": "16/07/2024 - 25/07/2024", "type": "Sick Leave", "notes": "fever" },
+            { "employee": "Isanur", "leave_date": "08/07/2024 - 08/07/2024", "type": "Sick Leave", "notes": "fever" },
+            { "employee": "Sumit", "leave_date": "16/07/2024 - 17/07/2024", "type": "Sick Leave", "notes": "-" },
+            { "employee": "Dev", "leave_date": "18/07/2024 - 20/07/2024", "type": "Casual Leave", "notes": "-" },
+            { "employee": "Anjali", "leave_date": "22/07/2024 - 24/07/2024", "type": "Emergency", "notes": "personal reasons" },
+            { "employee": "Nikhil", "leave_date": "15/07/2024 - 15/07/2024", "type": "Sick Leave", "notes": "headache" },
+            { "employee": "Priya", "leave_date": "26/07/2024 - 27/07/2024", "type": "Casual Leave", "notes": "vacation" },
+            { "employee": "Rahul", "leave_date": "19/07/2024 - 21/07/2024", "type": "Sick Leave", "notes": "food poisoning" },
+            { "employee": "Seema", "leave_date": "14/07/2024 - 14/07/2024", "type": "Casual Leave", "notes": "doctor's appointment" },
+            { "employee": "Tanmay", "leave_date": "28/07/2024 - 30/07/2024", "type": "Emergency", "notes": "family emergency" },
+            { "employee": "Uma", "leave_date": "17/07/2024 - 19/07/2024", "type": "Sick Leave", "notes": "cold and cough" },
+            { "employee": "Vijay", "leave_date": "25/07/2024 - 25/07/2024", "type": "Casual Leave", "notes": "personal work" },
+            { "employee": "Wasi", "leave_date": "13/07/2024 - 13/07/2024", "type": "Sick Leave", "notes": "dental issue" },
+            { "employee": "Xavia", "leave_date": "31/07/2024 - 01/08/2024", "type": "Emergency", "notes": "wedding anniversary" },
+            { "employee": "Yash", "leave_date": "20/07/2024 - 22/07/2024", "type": "Casual Leave", "notes": "outstation trip" },
+            { "employee": "Zara", "leave_date": "18/07/2024 - 18/07/2024", "type": "Sick Leave", "notes": "dizziness" }
+
+        ];
+
+        function showWeekFromDate() {
+            console.log("hi")
+            const dateInput = document.getElementById("week-start").value;
+            const selectedDate = dateInput ? new Date(dateInput) : new Date();
+            const startOfWeek = getStartOfWeek(selectedDate);
+            updateCalendarHeaders(startOfWeek);
+            updateCalendarBody(startOfWeek);
+            // initializeCalendar()
+        }
+
+        function getStartOfWeek(date) {
+            const day = date.getDay();
+            const diff = date.getDate() - day + (day === 0 ? -6 : 1);
+            return new Date(date.setDate(diff));
+        }
+        function updateCalendarHeaders(startDate) {
+            const headersRow = document.getElementById("calendar-headers").getElementsByTagName('th');
+            for (let i = 1; i <= 7; i++) {
+                const currentDate = new Date(startDate);
+                currentDate.setDate(startDate.getDate() + i - 1);
+                const dayName = currentDate.toDateString().slice(0, 3).toUpperCase();
+                const date = currentDate.toISOString().split('T')[0];
+                headersRow[i].innerHTML = `${dayName}<br>${date}`;
+            }
+        }
+
+
+        function updateCalendarBody(startDate) {
+            const body = document.getElementById("calendar-body");
+            body.innerHTML = ''; // Clear previous content
+
+            const employees = {};
+
+            // Collect unique employees and their leave data
+            leaveCalender.forEach(item => {
+                const { employee, leave_date, type, notes } = item;
+                if (!employees[employee]) {
+                    employees[employee] = [];
+                }
+                employees[employee].push({ leave_date, type, notes });
+            });
+
+            // Create rows for each employee
+            Object.keys(employees).forEach(employee => {
+                const employeeRow = document.createElement('tr');
+                employeeRow.setAttribute("data-employee", employee);
+
+                const employeeNameCell = document.createElement('td');
+                employeeNameCell.textContent = employee;
+                employeeRow.appendChild(employeeNameCell);
+
+                for (let i = 1; i <= 7; i++) {
+                    const leaveCell = document.createElement('td');
+                    employeeRow.appendChild(leaveCell);
+                }
+
+                body.appendChild(employeeRow);
+            });
+
+            // Populate leave data into the calendar
+            Object.keys(employees).forEach(employee => {
+                const cells = body.querySelector(`tr[data-employee="${employee}"]`).getElementsByTagName("td");
+                employees[employee].forEach(leave => {
+                    const [start, end] = leave.leave_date.split(" - ").map(d => {
+                        const [day, month, year] = d.split('/');
+                        return new Date(year, month - 1, day);
+                    });
+
+                    const startIndex = Math.max(1, Math.ceil((start - startDate) / (1000 * 60 * 60 * 24)) + 1);
+                    const endIndex = Math.min(7, Math.ceil((end - startDate) / (1000 * 60 * 60 * 24)) + 1);
+
+                    if (startIndex <= endIndex) {
+                        const leaveDiv = document.createElement('div');
+                        leaveDiv.className = 'leave';
+                        leaveDiv.innerHTML = `
+                    <div class="leave-type">
+                       <span> ${getLeaveIcon(leave.type)}</span>
+                        <span >${leave.type}</span>
+                    </div>
+                    <div class="note">Note: ${leave.notes}</div>
+                `;
+
+                        // Apply different classes based on leave type
+                        switch (leave.type) {
+                            case 'Sick Leave':
+                                leaveDiv.classList.add('sick-leave');
+                                break;
+                            case 'Emergency':
+                                leaveDiv.classList.add('emergency-leave');
+                                break;
+                            case 'Casual Leave':
+                                leaveDiv.classList.add('casual-leave');
+                                break;
+                            default:
+                                // Handle other leave types if needed
+                                break;
+                        }
+
+                        cells[startIndex].appendChild(leaveDiv);
+
+                        const updateLeaveDivWidth = () => {
+                            const cellWidth = cells[startIndex].offsetWidth;
+                            const spanWidth = (endIndex - startIndex + 1) * cellWidth - 10;
+                            leaveDiv.style.width = `${spanWidth}px`;
+                            leaveDiv.style.left = '0';
+                        };
+
+                        // Call the function initially and on window resize
+                        updateLeaveDivWidth();
+                        window.addEventListener('resize', updateLeaveDivWidth);
+                    }
+                });
+            });
+        }
+
+        // Function to get the appropriate leave icon
+        function getLeaveIcon(type) {
+            switch (type) {
+                case 'Sick Leave':
+                    return '<img src="./assets/image 2.png" alt="Sick Leave">';
+                case 'Emergency Leave':
+                    return '<img src="./assets/image 3.png" alt="Emergency Leave">';
+                case 'Casual Leave':
+                    return '<img src="./assets/image 4.png" alt="Casual Leave">';
+                default:
+                    return '';
+            }
+        }
+
+
+        // Initialize the calendar only if it doesn't exist already
+        if (typeof initializeCalendar === 'undefined') {
+            function initializeCalendar() {
+                const today = new Date().toISOString().split('T')[0];
+                document.getElementById('week-start').value = today;
+                showWeekFromDate();
+            }
+
+            document.addEventListener('DOMContentLoaded', () => {
+                initializeCalendar();
+            });
+        }
+
+    </script>
+</body>
+
+</html>
