@@ -104,8 +104,8 @@
                             </th>
                             <th scope="col" class="px-4 py-3">Full Name</th>
                             <th scope="col" class="px-4 py-3">Status</th>
-                            <th scope="col" class="px-4 py-3">Email</th>
-                            <th scope="col" class="px-4 py-3 hidden">Industry</th>
+                            <th scope="col" class="px-4 py-3">Email</th >
+                            <th scope="col" class="px-4 py-3 hidden" id="industry-header">Industry</th>
                             <th scope="col" class="px-4 py-3">Phone Number</th>
                             <th scope="col" class=" px-4 py-3">
                                 <div class="flex items-center justify-between">
@@ -169,7 +169,7 @@
                             </th>
                             <td class="px-4 py-4">
                                 <div
-                                    class="flex items-center justify-center text-xs bg-green-100 rounded text-green-600 font-semibold">
+                                    class="flex items-center justify-center text-xs  rounded  font-semibold">
                                     Confirmed</div>
                             </td>
                             <td class="px-4 py-4">demo@gmail.com</td>
@@ -206,8 +206,8 @@
                             </th>
                             <td class="px-4 py-4">
                                 <div
-                                    class="flex items-center justify-center text-xs bg-green-100 rounded text-green-600 font-semibold">
-                                    Confirmed</div>
+                                    class="flex items-center justify-center text-xs  rounded  font-semibold">
+                                    Audit Sent</div>
                             </td>
                             <td class="px-4 py-4">demo@gmail.com</td>
                             <td class="px-4 py-4 hidden">Marketing</td>
@@ -241,8 +241,8 @@
                             </th>
                             <td class="px-4 py-4">
                                 <div
-                                    class="flex items-center justify-center bg-green-100 text-xs rounded text-green-600 font-semibold">
-                                    Confirmed</div>
+                                    class="flex items-center justify-center  text-xs rounded  font-semibold">
+                                    Requirement Pending</div>
                             </td>
                             <td class="px-4 py-4">demo@gmail.com</td>
                             <td class="px-4 py-4 hidden">Information Technology</td>
@@ -276,8 +276,8 @@
                             </th>
                             <td class="px-4 py-4">
                                 <div
-                                    class="flex items-center justify-center bg-green-100 rounded  text-xs text-green-600 font-semibold">
-                                    Confirmed</div>
+                                    class="flex items-center justify-center  rounded  text-xs  font-semibold">
+                                    Call to be Made</div>
                             </td>
                             <td class="px-4 py-4">demo@gmail.com</td>
                             <td class="px-4 py-4 hidden">E-Commerce</td>
@@ -311,8 +311,8 @@
                             </th>
                             <td class="px-4 py-4">
                                 <div
-                                    class="flex items-center justify-center bg-green-100 rounded text-xs text-green-600 font-semibold">
-                                    Confirmed</div>
+                                    class="flex items-center justify-center  rounded text-xs  font-semibold">
+                                    Proposal Pending</div>
                             </td>
                             <td class="px-4 py-4">demo@gmail.com</td>
                             <td class="px-4 py-4 hidden">Education</td>
@@ -329,6 +329,42 @@
                             <td class="px-1 py-4"><img src="./assets/sb.png" alt="assigned user"></td>
 
                         </tr>
+                        <tr class="bg-white hover:bg-gray-50">
+                            <td class="w-4 p-4">
+                                <div class="flex items-center star-checkbox">
+                                    <input id="star-checkbox-6" type="checkbox" class="hidden">
+                                    <i class="fas fa-star" data-id="6"></i>
+                                    <label for="star-checkbox-6" class="sr-only">Star checkbox</label>
+                                </div>
+                            </td>
+                            <th scope="row" class="flex items-center px-4 py-4 text-gray-900">
+                                <div class="ps-3 w-full">
+                                    <div
+                                        class="fullName cursor-pointer text-sm w-full font-semibold flex justify-between">
+                                        Dev Patel <img src="./assets/banao.png" alt=""></div>
+                                </div>
+                            </th>
+                            <td class="px-4 py-4">
+                                <div
+                                    class="flex items-center justify-center  rounded text-xs  font-semibold">
+                                    Audit Pending</div>
+                            </td>
+                            <td class="px-4 py-4">demo@gmail.com</td>
+                            <td class="px-4 py-4 hidden">Education</td>
+                            <td class="px-4 py-4">+911234567890</td>
+                            <td class="px-4 py-4">2</td>
+                            <td class="px-4 py-4">5 Days</td>
+                            <td class="px-4 py-4 relative">Thu, May 8
+                                <div
+                                    class="hidden absolute bottom-full left-10 mt-2 bg-gray-600 p-2 shadow-lg border border-gray-200 rounded-lg popup-info">
+                                    <p class="text-xs text-white">Created at: 2024-02-01</p>
+                                    <p class="text-xs text-white">Updated at: 2024-07-01</p>
+                                </div>
+                            </td>
+                            <td class="px-1 py-4"><img src="./assets/sb.png" alt="assigned user"></td>
+
+                        </tr>
+                        
                     </tbody>
                 </table>
             </div>

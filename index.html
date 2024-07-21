@@ -86,6 +86,33 @@
             color: #D92D20;
         }
 
+        #emailInputContainer {
+            display: flex;
+            flex-direction: column;
+           
+        }
+
+        .email-input-wrapper {
+            width: 100%;
+            
+            margin-bottom: 10px;
+         
+        }
+
+        /* For phone input fields */
+        #inputContainer {
+            display: flex;
+            flex-direction: column;
+           
+        }
+
+        .phone-input-wrapper {
+            width: 100%;
+          
+            margin-bottom: 10px;
+           
+        }
+
         /*
         .flex {
             display: flex;
@@ -453,6 +480,24 @@
             .then(data => {
                 document.getElementById('dashboard').innerHTML = data;
 
+                const sidebar = document.getElementById('sidebar');
+                const r = document.querySelectorAll('tbody tr');
+                const industryColumn = document.querySelectorAll('td:nth-child(5)');
+
+                // if (sidebar.classList.contains('hidden')) {
+                //     document.querySelectorAll('th:nth-child(5), td:nth-child(5)').forEach(cell => cell.classList.add('hidden'));
+                // }
+
+                document.getElementById('line-right').addEventListener('click', function () {
+                    if (sidebar.classList.contains('hidden')) {
+                        sidebar.classList.remove('hidden');
+                        document.querySelectorAll('th:nth-child(5), td:nth-child(5)').forEach(cell => cell.classList.add('hidden'));
+                    } else {
+                        sidebar.classList.add('hidden');
+                        document.querySelectorAll('th:nth-child(5), td:nth-child(5)').forEach(cell => cell.classList.remove('hidden'));
+                    }
+                });
+
                 //starred the row
                 document.querySelectorAll('.star-checkbox i').forEach(starIcon => {
                     starIcon.addEventListener('click', function () {
@@ -496,55 +541,125 @@
                     document.getElementById('lead-table').classList.remove('hidden');
                 });
 
-                //additional email field
-                document.getElementById('addEmailBtn').addEventListener('click', function () {
-                    const emailInputContainer = document.getElementById('emailInputContainer');
-                    const numEmailInputs = emailInputContainer.querySelectorAll('.email-input-wrapper').length;
 
-                    if (numEmailInputs < 2) {
-                        const originalInputWrapper = emailInputContainer.querySelector('.email-input-wrapper');
-                        const newInputWrapper = originalInputWrapper.cloneNode(true);
 
-                        // Update the placeholder of the new input
-                        newInputWrapper.querySelector('input').placeholder = 'Enter additional email';
+                // Dynamically set status colors
+                document.querySelectorAll('tbody tr').forEach(row => {
+                    const statusCell = row.querySelector('td:nth-child(3) div');
+                    const statusText = statusCell.textContent.trim();
 
-                        emailInputContainer.appendChild(newInputWrapper);
+                    switch (statusText) {
+                        case 'Audit Sent':
+                            statusCell.style.backgroundColor = '#FEF8F2';
+                            statusCell.style.color = '#FF4E03E5';
+                            statusCell.style.fontWeight = '600';
+                            statusCell.style.borderRadius = '4px';
+                            statusCell.style.padding = '4px 8px';
+                            statusCell.style.textAlign = 'center';
+                            break;
+                        case 'Call to be Made':
+                            statusCell.style.backgroundColor = '#FFFAEB';
+                            statusCell.style.color = '#DC6803B2';
+                            statusCell.style.fontWeight = '600';
+                            statusCell.style.borderRadius = '4px';
+                            statusCell.style.padding = '4px 8px';
+                            statusCell.style.textAlign = 'center';
+                            break;
+                        case 'Requirement Pending':
+                            statusCell.style.backgroundColor = '#FEF8F2';
+                            statusCell.style.color = '#FF5C00';
+                            statusCell.style.fontWeight = '600';
+                            statusCell.style.borderRadius = '4px';
+                            statusCell.style.padding = '4px 8px';
+                            statusCell.style.textAlign = 'center';
+                            break;
+                        case 'Confirmed':
+                            statusCell.style.backgroundColor = '#ECFDF3';
+                            statusCell.style.color = '#079455';
+                            statusCell.style.fontWeight = '600';
+                            statusCell.style.borderRadius = '4px';
+                            statusCell.style.padding = '4px 8px';
+                            statusCell.style.textAlign = 'center';
+                            break;
+                        case 'Proposal Pending':
+                            statusCell.style.backgroundColor = '#FEF3F2';
+                            statusCell.style.color = '#D94C20';
+                            statusCell.style.fontWeight = '600';
+                            statusCell.style.borderRadius = '4px';
+                            statusCell.style.padding = '4px 8px';
+                            statusCell.style.textAlign = 'center';
+                            break;
 
-                        // Update the number of email inputs
-                        const updatedNumEmailInputs = emailInputContainer.querySelectorAll('.email-input-wrapper').length;
-                        emailInputContainer.style.setProperty('--num-email-inputs', updatedNumEmailInputs);
+                        case 'Audit Pending':
+                            statusCell.style.backgroundColor = '#FEF3F2';
+                            statusCell.style.color = ' #DC6803B2';
+                            statusCell.style.fontWeight = '600';
+                            statusCell.style.borderRadius = '4px';
+                            statusCell.style.padding = '4px 8px';
+                            statusCell.style.textAlign = 'center';
+                            break;
 
-                        // Update the width of each email input wrapper
-                        emailInputContainer.querySelectorAll('.email-input-wrapper').forEach(wrapper => {
-                            wrapper.style.flexBasis = `calc(100% / ${updatedNumEmailInputs})`;
-                        });
+                        case 'Proposal Sent':
+                            statusCell.style.backgroundColor = '#ECFDF3';
+                            statusCell.style.color = '#17B26AE5';
+                            statusCell.style.fontWeight = '600';
+                            statusCell.style.borderRadius = '4px';
+                            statusCell.style.padding = '4px 8px';
+                            statusCell.style.textAlign = 'center';
+                            break;
+
+                        case 'Soft Confirmed':
+                            statusCell.style.backgroundColor = '#ECFDF3';
+                            statusCell.style.color = '#079455';
+                            statusCell.style.fontWeight = '600';
+                            statusCell.style.borderRadius = '4px';
+                            statusCell.style.padding = '4px 8px';
+                            statusCell.style.textAlign = 'center';
+                            break;
+
                     }
                 });
 
+                
+                document.getElementById('addEmailBtn').addEventListener('click', function () {
+                    const emailInputContainer = document.getElementById('emailInputContainer');
+                    const originalInputWrapper = emailInputContainer.querySelector('.email-input-wrapper');
+                    const newInputWrapper = originalInputWrapper.cloneNode(true);
 
-                //additional phone field
+                    // Update the placeholder of the new input
+                    newInputWrapper.querySelector('input').placeholder = 'Enter additional email';
+
+                    emailInputContainer.appendChild(newInputWrapper);
+
+                    // Update the number of email inputs
+                    const updatedNumEmailInputs = emailInputContainer.querySelectorAll('.email-input-wrapper').length;
+                    emailInputContainer.style.setProperty('--num-email-inputs', updatedNumEmailInputs);
+
+                    // Update the width of each email input wrapper
+                    emailInputContainer.querySelectorAll('.email-input-wrapper').forEach(wrapper => {
+                        wrapper.style.flexBasis = `calc(100% / ${updatedNumEmailInputs})`;
+                    });
+                });
+
+                // Additional phone field
                 document.getElementById('addPhoneBtn').addEventListener('click', function () {
                     const inputContainer = document.getElementById('inputContainer');
-                    const numInputs = inputContainer.querySelectorAll('.phone-input-wrapper').length;
+                    const originalInputWrapper = inputContainer.querySelector('.phone-input-wrapper');
+                    const newInputWrapper = originalInputWrapper.cloneNode(true);
 
-                    if (numInputs < 2) {
-                        const originalInputWrapper = inputContainer.querySelector('.phone-input-wrapper');
-                        const newInputWrapper = originalInputWrapper.cloneNode(true);
+                    // Update the placeholder of the new input
+                    newInputWrapper.querySelector('input').placeholder = 'Enter additional phone no';
 
-                        // Update the placeholder of the new input
-                        newInputWrapper.querySelector('input').placeholder = 'Enter additional phone no';
+                    inputContainer.appendChild(newInputWrapper);
 
-                        inputContainer.appendChild(newInputWrapper);
+                    // Update the number of phone inputs
+                    const updatedNumInputs = inputContainer.querySelectorAll('.phone-input-wrapper').length;
+                    inputContainer.style.setProperty('--num-inputs', updatedNumInputs);
 
-                        // Update the number of phone inputs
-                        const updatedNumInputs = inputContainer.querySelectorAll('.phone-input-wrapper').length;
-                        inputContainer.style.setProperty('--num-inputs', updatedNumInputs);
-
-                        // Update the width of each phone input wrapper
-                        inputContainer.querySelectorAll('.phone-input-wrapper').forEach(wrapper => {
-                            wrapper.style.flexBasis = `calc(100% / ${updatedNumInputs})`;
-                        });
-                    }
+                    // Update the width of each phone input wrapper
+                    inputContainer.querySelectorAll('.phone-input-wrapper').forEach(wrapper => {
+                        wrapper.style.flexBasis = `calc(100% / ${updatedNumInputs})`;
+                    });
                 });
 
 
@@ -647,19 +762,19 @@
 
 
         //toggle sidebar function    
-        document.getElementById('line-right').addEventListener('click', function () {
-            const sidebar = document.getElementById('sidebar');
-            const dashboard = document.getElementById('dashboard');
-            if (sidebar.classList.contains('hidden')) {
-                sidebar.classList.remove('hidden');
-                // dashboard.classList.remove('w-full');
-                // dashboard.classList.add('w-10/12');
-            } else {
-                sidebar.classList.add('hidden');
-                // dashboard.classList.remove('w-10/12');
-                // dashboard.classList.add('w-full');
-            }
-        });
+        // document.getElementById('line-right').addEventListener('click', function () {
+        //     const sidebar = document.getElementById('sidebar');
+        //     const dashboard = document.getElementById('dashboard');
+        //     if (sidebar.classList.contains('hidden')) {
+        //         sidebar.classList.remove('hidden');
+        //         // dashboard.classList.remove('w-full');
+        //         // dashboard.classList.add('w-10/12');
+        //     } else {
+        //         sidebar.classList.add('hidden');
+        //         // dashboard.classList.remove('w-10/12');
+        //         // dashboard.classList.add('w-full');
+        //     }
+        // });
 
 
     </script>

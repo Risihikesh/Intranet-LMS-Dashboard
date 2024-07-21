@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <title>Send Offer</title>
+    <style>
+        .navbar-title {
+            font-weight: 500;
+            font-size: 20px;
+            background: linear-gradient(to right, rgba(210, 13, 13, 1) 0%,
+                    rgba(201, 143, 30, 1) 12.5%,
+                    rgba(163, 191, 49, 1) 25%,
+                    rgba(66, 182, 71, 1) 37.5%,
+                    rgba(85, 172, 156, 1) 50%,
+                    rgba(61, 155, 207, 1) 62.5%,
+                    rgba(107, 76, 193, 1) 75%,
+                    rgba(186, 37, 162, 1) 87.5%,
+                    rgba(221, 24, 130, 1) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <div class="w-full h-14 flex items-center justify-between bg-gray-900 fixed top-0 z-10">
+        <div class="pl-10 text-xl font-medium"><span class="navbar-title">Intranet</span></div>
+        <div class="w-1/3 h-8 flex items-center border border-gray-700 rounded bg-gray-900 mr-5">
+            <div class="pl-3">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M13.6967 12.5708L16.98 15.9125C17.1271 16.0715 17.2065 16.2815 17.2015 16.498C17.1964 16.7145 17.1072 16.9206 16.9528 17.0725C16.7984 17.2244 16.5909 17.3102 16.3744 17.3117C16.1578 17.3133 15.9491 17.2305 15.7925 17.0808L12.5109 13.7425C11.2447 14.6964 9.66328 15.1334 8.08694 14.9652C6.51059 14.7969 5.05708 14.036 4.02072 12.8363C2.98436 11.6367 2.44259 10.0881 2.50511 8.50399C2.56763 6.91993 3.22978 5.41881 4.35747 4.3046C5.48516 3.19038 6.99412 2.54632 8.57883 2.50284C10.1635 2.45936 11.7055 3.0197 12.8926 4.07041C14.0797 5.12111 14.8232 6.58366 14.9725 8.16192C15.1218 9.74017 14.6657 11.3162 13.6967 12.5708ZM8.75004 13.3333C9.96562 13.3333 11.1314 12.8505 11.9909 11.9909C12.8505 11.1314 13.3334 9.96558 13.3334 8.75C13.3334 7.53443 12.8505 6.36864 11.9909 5.5091C11.1314 4.64956 9.96562 4.16667 8.75004 4.16667C7.53446 4.16667 6.36868 4.64956 5.50913 5.5091C4.64959 6.36864 4.16671 7.53443 4.16671 8.75C4.16671 9.96558 4.64959 11.1314 5.50913 11.9909C6.36868 12.8505 7.53446 13.3333 8.75004 13.3333Z"
+                        fill="#94969C" />
+                </svg>
+            </div>
+            <input class="w-3/4 pl-3 bg-gray-900 border-none text-gray-400 outline-none" placeholder="Search" />
+            <div class="text-sm text-gray-400 pl-3">Ctrl + k</div>
+        </div>
+        <div class="flex items-center gap-4 pr-3">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="24" height="24" fill="white" fill-opacity="0.01" />
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12ZM14.8284 7.15997C15.3505 7.67945 15.7181 8.3338 15.89 9.04999C16.1223 10.008 15.9918 11.0181 15.5235 11.8856C15.0552 12.7531 14.2824 13.4165 13.354 13.748C13.149 13.821 13.004 14.003 13.004 14.22V15.002C13.004 15.2677 12.8984 15.5226 12.7105 15.7105C12.5226 15.8984 12.2677 16.004 12.002 16.004C11.7363 16.004 11.4814 15.8984 11.2935 15.7105C11.1056 15.5226 11 15.2677 11 15.002V12.988C11.0034 12.725 11.1103 12.474 11.2975 12.2893C11.4846 12.1046 11.7369 12.001 11.9998 12.001H11.993C13.098 12.001 13.996 11.103 13.996 10.001C13.984 9.47739 13.7676 8.97927 13.3929 8.61327C13.0183 8.24727 12.5153 8.04248 11.9915 8.04275C11.4678 8.04301 10.9649 8.2483 10.5907 8.61467C10.2164 8.98104 10.0004 9.47937 9.989 10.003C9.987 10.554 9.539 11.001 8.987 11.001C8.74019 10.9995 8.50281 10.906 8.32123 10.7388C8.13964 10.5717 8.02689 10.3428 8.005 10.097L8 9.99997C8.01017 8.92041 8.43191 7.88849 9.17171 7.1603C9.91152 6.4321 10.9084 6.05292 11.941 6.10997C12.9736 6.16702 13.9365 6.65503 14.608 7.46797L14.8284 7.15997ZM12 18C12.5523 18 13 18.4477 13 19C13 19.5523 12.5523 20 12 20C11.4477 20 11 19.5523 11 19C11 18.4477 11.4477 18 12 18Z"
+                    fill="#82868C" />
+            </svg>
+            <div><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="24" height="24" fill="none" fillOpacity="0.01" />
+                    <path fillRule="evenodd" clipRule="evenodd"
+                        d="M11.701 16.7C11.0383 16.7094 10.3803 16.5869 9.76525 16.3398C9.15022 16.0926 8.59045 15.7257 8.11846 15.2604C7.64647 14.795 7.27168 14.2405 7.01587 13.629C6.76005 13.0175 6.62832 12.3613 6.62832 11.6985C6.62832 11.0357 6.76005 10.3795 7.01587 9.76799C7.27168 9.15652 7.64647 8.60199 8.11846 8.13663C8.59045 7.67127 9.15022 7.30435 9.76525 7.05721C10.3803 6.81006 11.0383 6.68762 11.701 6.69699C13.0277 6.69699 14.2999 7.22399 15.238 8.16204C16.176 9.1001 16.703 10.3724 16.703 11.699C16.703 13.0256 16.176 14.2979 15.238 15.2359C14.2999 16.174 13.0277 16.701 11.701 16.701V16.7ZM20.069 13.584C19.6764 13.4489 19.3357 13.1947 19.0945 12.8568C18.8532 12.5189 18.7233 12.1142 18.723 11.699C18.723 10.823 19.286 10.086 20.068 9.81399C20.1835 9.77596 20.2801 9.69557 20.3386 9.58904C20.3971 9.48251 20.4129 9.35777 20.383 9.23999C20.1859 8.54432 19.9052 7.8751 19.547 7.24699C19.488 7.14748 19.3948 7.07284 19.2847 7.03696C19.1747 7.00109 19.0554 7.00643 18.949 7.05199C18.5391 7.21777 18.0863 7.24585 17.659 7.13199C17.3236 7.04234 17.0174 6.86638 16.7711 6.62163C16.5248 6.37688 16.3468 6.07188 16.255 5.73699C16.1383 5.30793 16.165 4.85249 16.331 4.43999C16.376 4.3336 16.3809 4.21451 16.3449 4.10476C16.3089 3.99501 16.2343 3.90202 16.135 3.84299C15.512 3.48989 14.849 3.21259 14.16 3.01699C14.0424 2.98679 13.9176 3.00243 13.8111 3.06072C13.7045 3.11902 13.6241 3.21563 13.586 3.33099C13.451 3.7236 13.1968 4.06429 12.8589 4.30557C12.521 4.54684 12.1162 4.67668 11.701 4.67699C11.2861 4.67669 10.8816 4.54696 10.5439 4.30587C10.2062 4.06477 9.95209 3.72434 9.81704 3.33199C9.7786 3.21664 9.69798 3.12009 9.59135 3.06167C9.48471 3.00325 9.35994 2.98729 9.24204 3.01699C8.53404 3.21699 7.86304 3.50199 7.23804 3.85899C7.14065 3.91606 7.06705 4.00627 7.03069 4.11313C6.99434 4.21999 6.99765 4.33637 7.04004 4.44099C7.18931 4.8048 7.22812 5.20452 7.15164 5.59025C7.07517 5.97599 6.88678 6.33066 6.61 6.61C6.33322 6.88934 5.9803 7.08098 5.59528 7.16101C5.21027 7.24104 4.81021 7.2059 4.44504 7.05999C4.33888 7.01557 4.22026 7.01093 4.11096 7.04694C4.00166 7.08294 3.90901 7.15717 3.85004 7.25599C3.49282 7.88456 3.21311 8.55411 3.01704 9.24999C2.98735 9.36659 3.00253 9.49008 3.05957 9.59602C3.11661 9.70195 3.21136 9.7826 3.32504 9.82199C3.71207 9.96045 4.04688 10.2151 4.28369 10.551C4.5205 10.887 4.64775 11.2879 4.64804 11.699C4.64804 12.566 4.09604 13.298 3.32404 13.576C3.21065 13.6152 3.11609 13.6955 3.05905 13.801C3.00202 13.9066 2.98667 14.0297 3.01604 14.146C3.19209 14.7669 3.43449 15.367 3.73904 15.936C3.79882 16.0417 3.89666 16.1206 4.0126 16.1566C4.12855 16.1927 4.25388 16.1831 4.36304 16.13C4.95804 15.857 5.70604 15.866 6.46704 16.368C6.58404 16.445 6.69204 16.553 6.76904 16.668C7.29604 17.468 7.28104 18.248 6.96704 18.856C6.90948 18.9623 6.89481 19.0866 6.92606 19.2034C6.9573 19.3202 7.03208 19.4206 7.13504 19.484C7.79699 19.8723 8.50614 20.1737 9.24504 20.381C9.36205 20.4113 9.48622 20.3958 9.59218 20.3377C9.69813 20.2795 9.77785 20.183 9.81504 20.068C9.94898 19.6739 10.2028 19.3316 10.541 19.089C10.8792 18.8464 11.2848 18.7156 11.701 18.715C12.579 18.715 13.319 19.282 13.588 20.068C13.6254 20.1829 13.7052 20.2792 13.8111 20.3373C13.917 20.3955 14.041 20.4111 14.158 20.381C14.8872 20.1759 15.5875 19.8792 16.242 19.498C16.3456 19.4344 16.4207 19.3334 16.4518 19.2159C16.4829 19.0984 16.4676 18.9735 16.409 18.867C16.091 18.259 16.072 17.474 16.6 16.672C16.677 16.556 16.785 16.447 16.902 16.37C17.674 15.859 18.429 15.857 19.027 16.14C19.1362 16.1947 19.2621 16.2055 19.3789 16.1701C19.4957 16.1348 19.5945 16.056 19.655 15.95C19.962 15.3805 20.2061 14.7793 20.383 14.157C20.4132 14.0395 20.3975 13.9149 20.3392 13.8085C20.2809 13.7021 20.1843 13.6218 20.069 13.584Z"
+                        fill="#82868C" />
+                </svg>
+            </div>
+            <img src="../assets/Avatar.png" alt="Avatar" class="w-8 h-8 rounded-full" />
+        </div>
+    </div>
+
+
+
+    <div class="flex flex-col items-center justify-center gap-3 mt-14">
+        <div>Send Offer</div>
+        <div></div>
+        <div class="w-2/5">
+            <form class="w-2/5 flex flex-col items-center gap-4 w-full justify-center ">
+                <div class="w-full flex flex-col gap-2">
+                    <label class="gap-2 font-medium text-body " for="email">Email</label>
+                    <input class="border" type="text" name="email" placeholder="enter email">
+                </div>
+                <div class="w-full flex flex-row gap-2">
+                    <div class="w-1/2">
+                        <label class="gap-2 font-medium text-body " for="department">Department</label>
+                        <select class="w-full border rounded outline-none text-gray-500 " id="department"
+                            name="department">
+                            <option value="" disabled selected>Choose department</option>
+                            <option value="it">IT</option>
+                            <option value="marketing">Marketing</option>
+                            <option value="business">Business</option>
+                        </select>
+                    </div>
+                    <div class=" flex flex-col w-1/2">
+                        <label class="gap-2 font-medium text-body " for="role">Role Type</label>
+                        <input class="border rounded" type="text" name="role" placeholder="enter role type">
+
+
+                    </div>
+                </div>
+                <div class="w-full flex flex-col">
+                    <label class="gap-2 font-medium text-body " for="department">Department</label>
+                    <select class="w-full border rounded outline-none text-gray-500 " id="department" name="department">
+                        <option value="" disabled selected>Choose department</option>
+                        <option value="it">IT</option>
+                        <option value="marketing">Marketing</option>
+                        <option value="business">Business</option>
+                    </select>
+                </div>
+                <div class="w-full flex flex-col">
+                    <label class="gap-2 font-medium text-body " for="title">Title</label>
+                    <input class="border rounded" type="text" name="title" placeholder="enter title">
+                </div>
+                <div class="w-full flex flex-row gap-2">
+                    <div class="w-1/2 flex flex-col">
+                        <label class="gap-2 font-medium text-body " for="name">Name</label>
+                        <input class="border rounded" type="text" name="name" placeholder="enter name">
+                    </div>
+                    <div class="w-1/2 flex flex-col">
+                        <label class="gap-2 font-medium text-body " for="username">Username</label>
+                        <input class="border rounded" type="text" name="username" placeholder="enter username">
+                    </div>
+                </div>
+                <div class="w-full flex flex-row gap-2">
+                    <div class="w-1/2 flex flex-col gap-2">
+                        <label class="gap-2 font-medium text-body " for="empType">Emp Type</label>
+                        <select class="w-full border rounded outline-none text-gray-500 " id="department"
+                            name="department">
+                            <option value="" disabled selected>------</option>
+                            <option value="option1">option1</option>
+                            <option value="option2">option2</option>
+                            <option value="option3">option3</option>
+                        </select>
+                    </div>
+                    <div class="w-1/2 flex flex-col gap-2">
+                        <label class="gap-2 font-medium text-body " for="empType2">Emp Type</label>
+                        <select class="w-full border rounded outline-none text-gray-500 " id="department"
+                            name="empType2">
+                            <option value="" disabled selected>Choose option</option>
+                            <option value="option1">option1</option>
+                            <option value="option2">option2</option>
+                            <option value="option3">option3</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="w-full flex gap-2">
+                    <div class="w-1/2 flex flex-col">
+                        <label class="gap-2 font-medium text-body " for="basePay">Base Pay</label>
+                        <input class="border rounded" type="text" name="basePay" placeholder="enter base pay">
+                    </div>
+                    <div class="w-1/2 flex flex-col">
+                        <label class="gap-2 font-medium text-body " for="payPerTask">Pay per Task</label>
+                        <input class="border rounded" type="text" name="payPerTask" placeholder="">
+                    </div>
+                </div>
+                <div class="w-full flex flex-col">
+                    <label class="gap-2 font-medium text-body " for="offerDate">Offer Date</label>
+                    <input class="border rounded" type="date" name="offerDate" placeholder="">
+                </div>
+                <div class="w-full flex"></div>
+
+
+            </form>
+
+
+        </div>
+
+
+    </div>
+
+
+</body>
+
+</html>

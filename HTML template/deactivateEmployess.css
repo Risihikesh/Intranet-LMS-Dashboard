@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+
+.text-body {
+    color: #344054;
+  }
+
+.deactivateEmployess{
+    color: #007BFF;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 38.73px;
+    border-color: #007BFF;
+}
+
+.deactivate-button{
+    color: #007BFF;
+    font-weight: 500;
+    border-color: #007BFF;
+}
+
+.checkbox-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Adjust as needed */
+}
+
+.checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px; /* Adjust as needed */
+}
+
+label {
+    display: flex;
+    align-items: center;
+}
+
+
+.deactivate-alert{
+    width: 24px;
+    height: 24px;
+    background-color: #00B879;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
