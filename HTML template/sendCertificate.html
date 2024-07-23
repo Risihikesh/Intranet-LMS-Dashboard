@@ -4,15 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deactivate Employees</title>
+    <title>Send Certificate</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="deactivateEmployees.css">
+    <link rel="stylesheet" href="sendCertificate.css">
     <style>
-       
+      
     </style>
 </head>
 
@@ -51,74 +51,82 @@
     </div>
 
 
-    <!-- Deactivate Employee -->
+    <!-- Sent Certificate -->
 
     <div class="flex flex-col items-center justify-center gap-3 mt-14">
-        <div class="deactivateEmployess pt-10 w-2/5  text-center text-2xl">Deactivate Employee</div>
-        <div class="w-2/5 pt-6 flex flex-col gap-4  ">
-            <form class="flex flex-col gap-4 ">
-                <label class="gap-2 font-medium text-body " for="department">Department</label>
-                <select class="w-full border rounded outline-none h-10 text-gray-500 " id="department"
-                    name="department">
-                    <option value="" disabled selected>Choose department</option>
-                    <option value="it">IT</option>
-                    <option value="marketing">Marketing</option>
-                    <option value="business">Business</option>
-                </select>
-                <label class="gap-2 w-full font-medium text-body " for="username">Username</label>
-                <input class="w-full border rounded outline-none h-10 px-2" type="text" name="username"
-                    placeholder="Choose Username">
-            </form>
-        </div>
-        <div class="select-option flex flex-row gap-36 w-2/5 ">
-            <div class="checkbox-group flex flex-col gap-2">
-                <label class="flex items-center">
-                    <input type="checkbox" name="intranet" class="mr-2">
-                    Intranet
-                </label>
-                <label class="flex items-center">
-                    <input type="checkbox" name="mantis" class="mr-2">
-                    Mantis
+        <div class="sentCertificate pt-10 w-2/5  text-center text-2xl">Sent Certificate</div>
+        <div class="w-2/5 pt-6 flex flex-col gap-4 w-2/5 py-16 ">
+            <div class="w-full flex flex-col gap-2">
+                <label class="gap-2 font-medium text-body " for="username">Username</label>
+                <input class="border rounded px-2 h-10 outline-none" type="text" name="username"
+                    placeholder="enter username">
+            </div>
+            <div class="w-full flex flex-col gap-2">
+                <label class="gap-2 font-medium text-body " for="joinDate">Joining Date</label>
+                <input class="border rounded px-2 h-10 outline-none" type="date" name="joinDate" placeholder="">
+            </div>
+            <div class="w-full flex flex-col gap-2">
+                <label class="gap-2 font-medium text-body " for="completionDate">Completion Date</label>
+                <input class="border rounded px-2 h-10 outline-none" type="date" name="completionDate" placeholder="">
+            </div>
+            <div class="w-full flex flex-col gap-2">
+                <label class="gap-2 font-medium text-body " for="position">Position</label>
+                <input class="border rounded px-2 h-10 outline-none" type="text" name="position" placeholder="">
+            </div>
+            <div class="w-full flex flex-col gap-2">
+                <label class="gap-2 font-medium text-body " for="majorResponsibilities">Major Responsibilities (if
+                    any)</label>
+                <input class="border rounded px-2 h-10 outline-none" type="text" name="majorResponsibilities"
+                    placeholder="">
+            </div>
+            <div class="w-full flex flex-col gap-2">
+                <label class="send-certificate flex items-center">
+                    <input type="checkbox" name="sendCertificate" class="mr-2">
+                    Send Certificate
                 </label>
             </div>
-            <div class="checkbox-group flex flex-col gap-2">
-                <label class="flex items-center">
-                    <input type="checkbox" name="github" class="mr-2">
-                    GitHub
-                </label>
-                <label class="flex items-center">
-                    <input type="checkbox" name="slack" class="mr-2">
-                    Slack
-                </label>
+            <div class="w-full flex flex-row items-center justify-center gap-2">
+                <button class="preview-button">
+                    Preview
+                </button>
+                <button class="send-button">
+                    Send Certificate
+                </button>
             </div>
-        </div>
-        <button class="deactivate-button mt-10 font-medium text-base py-2 rounded border-2  w-2/5">Deactivate</button>
 
-        <div id="deactivate-alert" class=" flex flex-row  border border-gray-100 h-11 rounded-lg hidden mt-4 items-center "
-            style="background: #FFFFFF; box-shadow: 0px 8px 12px 0px #939CA31F, 0px 0px 2px 0px #939CA35C;">
-            <div class="deactivate-alert rounded-full bg-gray-900 mx-4">
-                <svg width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M3.5 6.79988L1.16666 4.46655C0.906663 4.20655 0.49333 4.20655 0.23333 4.46655C-0.0266699 4.72655 -0.0266699 5.13988 0.23333 5.39988L3.02666 8.19322C3.28666 8.45322 3.70666 8.45322 3.96666 8.19322L11.0333 1.13322C11.2933 0.873216 11.2933 0.459883 11.0333 0.199883C10.7733 -0.0601172 10.36 -0.0601172 10.1 0.199883L3.5 6.79988Z" fill="white"/>
+            <div id="send-alert"
+                class=" flex flex-row gap-1  border border-gray-100 h-11 rounded-lg hidden mt-4 items-center justify-center "
+                style="background: #FFFFFF; box-shadow: 0px 8px 12px 0px #939CA31F, 0px 0px 2px 0px #939CA35C;">
+                <div class="send-alert rounded-full">
+                    <svg width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M3.5 6.79988L1.16666 4.46655C0.906663 4.20655 0.49333 4.20655 0.23333 4.46655C-0.0266699 4.72655 -0.0266699 5.13988 0.23333 5.39988L3.02666 8.19322C3.28666 8.45322 3.70666 8.45322 3.96666 8.19322L11.0333 1.13322C11.2933 0.873216 11.2933 0.459883 11.0333 0.199883C10.7733 -0.0601172 10.36 -0.0601172 10.1 0.199883L3.5 6.79988Z"
+                            fill="white" />
                     </svg>
-                    
-            </div>
-            <div class="mx-4 text-gray-500 font-medium"> Employee deactivated successfully.</div>
 
+                </div>
+                <div class="mx-4 text-gray-500 font-medium"> Certificate Sent Successfully.</div>
+
+            </div>
         </div>
+
+
+
+
     </div>
 
     <script>
         function showAlert() {
-            const alertDiv = document.getElementById('deactivate-alert');
-            alertDiv.style.display = 'flex'; 
+            const alertDiv = document.getElementById('send-alert');
+            alertDiv.style.display = 'flex';
 
             setTimeout(() => {
-                alertDiv.style.display = 'none'; 
+                alertDiv.style.display = 'none';
             }, 3000);
         }
 
         document.addEventListener('DOMContentLoaded', () => {
-            document.querySelector('.deactivate-button').addEventListener('click', (e) => {
+            document.querySelector('.send-button').addEventListener('click', (e) => {
                 e.preventDefault();
                 showAlert();
             });

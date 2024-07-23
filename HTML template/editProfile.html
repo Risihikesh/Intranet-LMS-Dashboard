@@ -9,10 +9,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="offerSent.css">
-    <title>Send Offer</title>
+    <link rel="stylesheet" href="editprofile.css">
+    <title>Edit Profile</title>
     <style>
-       
+      
     </style>
 </head>
 
@@ -49,132 +49,63 @@
         </div>
     </div>
 
-
+<!-- Edit Profile -->
 
     <div class="flex flex-col items-center justify-center gap-3 mt-16 py-10">
-        <div id="sendOffer-alert"
-            class=" w-1/4 flex flex-row gap-1  border border-gray-100 h-11 rounded-lg hidden   items-center justify-center "
-            style="background: #FFFFFF; box-shadow: 0px 8px 12px 0px #939CA31F, 0px 0px 2px 0px #939CA35C;">
-            <div class="sendOffer-alert rounded-full">
-                <svg width="12" height="9" viewBox="0 0 12 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                        d="M3.5 6.79988L1.16666 4.46655C0.906663 4.20655 0.49333 4.20655 0.23333 4.46655C-0.0266699 4.72655 -0.0266699 5.13988 0.23333 5.39988L3.02666 8.19322C3.28666 8.45322 3.70666 8.45322 3.96666 8.19322L11.0333 1.13322C11.2933 0.873216 11.2933 0.459883 11.0333 0.199883C10.7733 -0.0601172 10.36 -0.0601172 10.1 0.199883L3.5 6.79988Z"
-                        fill="white" />
-                </svg>
-
-            </div>
-            <div class="mx-4 text-gray-500 font-medium"> Offer Successfully Sent</div>
-
-        </div>
-        <div class="title">Send Offer</div>
-        <div class="menu">
-            <div class="menu-item" id="atg">ATG</div>
-            <div class="menu-item" id="banao">Banao</div>
-            <div class="menu-item" id="bunny">Bunny</div>
-        </div>
+        <div class="title">Edit Profile</div>
+       
         <div class="w-2/5">
             <form class="w-2/5 flex flex-col items-center gap-4 w-full justify-center ">
                 <div class="w-full flex flex-col gap-2">
-                    <label class=" font-medium text-body  " for="email">Email</label>
-                    <input class="border h-10 rounded px-2 outline-none" type="text" name="email"
-                        placeholder="enter email">
-                </div>
-                <div class="w-full flex flex-row gap-2">
-                    <div class="w-1/2 flex gap-2 flex-col">
-                        <label class="gap-2 font-medium text-body " for="department">Department</label>
-                        <select class="w-full border rounded px-2 outline-none text-gray-500 h-10 " id="department"
-                            name="department">
-                            <option value="" disabled selected>Choose department</option>
-                            <option value="it">IT</option>
-                            <option value="marketing">Marketing</option>
-                            <option value="business">Business</option>
-                        </select>
-                    </div>
-                    <div class=" flex flex-col w-1/2 gap-2">
-                        <label class="gap-2 font-medium text-body " for="role">Role Type</label>
-                        <input class="border rounded px-2 h-10 outline-none " type="text" name="role"
-                            placeholder="enter role type">
-
-
-                    </div>
+                    <label class=" font-medium text-body  " for="firstname">First Name</label>
+                    <input class="border h-10 rounded px-2 outline-none" type="text" name="firstname"
+                        placeholder="">
                 </div>
                 <div class="w-full flex flex-col gap-2">
-                    <label class="gap-2 font-medium text-body " for="department">Department</label>
-                    <select class="w-full border rounded px-2 outline-none text-gray-500 h-10  " id="department"
-                        name="department">
-                        <option value="" disabled selected>Choose department</option>
-                        <option value="it">IT</option>
-                        <option value="marketing">Marketing</option>
-                        <option value="business">Business</option>
-                    </select>
+                    <label class=" font-medium text-body  " for="lastname">Last Name</label>
+                    <input class="border h-10 rounded px-2 outline-none" type="text" name="lastname"
+                        placeholder="">
+                </div>
+                <div class="w-full flex flex-col gap-2">
+                    <label class=" font-medium text-body  " for="atg-id">ATG ID</label>
+                    <input class="border h-10 rounded px-2 outline-none" type="text" name="atg-id"
+                        placeholder="">
+                </div>
+                <div class="w-full flex flex-col gap-2">
+                    <label class="gap-2 font-medium text-body " for="city">City</label>
+                    <input class="border rounded px-2 h-10 outline-none" type="text" name="city"
+                        placeholder="">
+                </div>
+                <div class="w-full flex flex-col gap-2">
+                        <label class="gap-2 font-medium text-body " for="college">College</label>
+                        <input class="border rounded px-2 h-10 outline-none" type="text" name="college"
+                            placeholder=""> 
+                </div>
+                <div class="w-full flex flex-col gap-2">
+                    <label class="gap-2 font-medium text-body " for="graduation">Graduation Year</label>
+                        <input class="border rounded px-2 h-10 outline-none" type="text" name="graduation"
+                            placeholder="">
+                </div>
+                <div class="w-full flex flex-col gap-2">
+                        <label class="gap-2 font-medium text-body " for="contact">Contact no.</label>
+                        <input class="border rounded px-2 h-10 outline-none" type="text" name="contact"
+                            placeholder="">                    
+                </div>
+                <div class="w-full flex flex-col gap-2">
+                    <label class="gap-2 font-medium text-body " for="WhatsApp">WhatsApp no.</label>
+                    <input class="border rounded px-2 h-10 outline-none " type="text" name="WhatsApp" placeholder="">
+                </div>
+                <div class="w-full flex flex-col gap-2">
+                    <label class="gap-2 font-medium text-body " for="avatar">Avatar</label>
+                    <input class="border rounded px-2 py-1 h-10 outline-none  " type="file" name="avatar" placeholder="changes">
                 </div>
                 <div class="w-full flex flex-col gap-2">
                     <label class="gap-2 font-medium text-body " for="title">Title</label>
-                    <input class="border rounded px-2 h-10 outline-none" type="text" name="title"
-                        placeholder="enter title">
-                </div>
-                <div class="w-full flex flex-row gap-2">
-                    <div class="w-1/2 flex flex-col gap-2">
-                        <label class="gap-2 font-medium text-body " for="name">Name</label>
-                        <input class="border rounded px-2 h-10 outline-none" type="text" name="name"
-                            placeholder="enter name">
-                    </div>
-                    <div class="w-1/2 flex flex-col gap-2">
-                        <label class="gap-2 font-medium text-body " for="username">Username</label>
-                        <input class="border rounded px-2 h-10 outline-none" type="text" name="username"
-                            placeholder="enter username">
-                    </div>
-                </div>
-                <div class="w-full flex flex-row gap-2">
-                    <div class="w-1/2 flex flex-col gap-2">
-                        <label class="gap-2 font-medium text-body " for="empType">Emp Type</label>
-                        <select class="w-full border rounded px-2 outline-none text-gray-500 h-10  " id="department"
-                            name="department">
-                            <option value="" disabled selected>------</option>
-                            <option value="option1">option1</option>
-                            <option value="option2">option2</option>
-                            <option value="option3">option3</option>
-                        </select>
-                    </div>
-                    <div class="w-1/2 flex flex-col gap-2">
-                        <label class="gap-2 font-medium text-body " for="empType2">Emp Type</label>
-                        <select class="w-full border rounded px-2 outline-none text-gray-500 h-10  " id="department"
-                            name="empType2">
-                            <option value="" disabled selected>Choose option</option>
-                            <option value="option1">option1</option>
-                            <option value="option2">option2</option>
-                            <option value="option3">option3</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="w-full flex gap-2">
-                    <div class="w-1/2 flex flex-col gap-2">
-                        <label class="gap-2 font-medium text-body " for="basePay">Base Pay</label>
-                        <input class="border rounded px-2 h-10 outline-none" type="text" name="basePay"
-                            placeholder="enter base pay">
-                    </div>
-                    <div class="w-1/2 flex flex-col gap-2">
-                        <label class="gap-2 font-medium text-body " for="payPerTask">Pay per Task</label>
-                        <input class="border rounded px-2 h-10 outline-none" type="text" name="payPerTask"
-                            placeholder="">
-                    </div>
+                    <input class="border rounded px-2 h-10 outline-none " type="text" name="title" placeholder="">
                 </div>
                 <div class="w-full flex flex-col gap-2">
-                    <label class="gap-2 font-medium text-body " for="offerDate">Offer Date</label>
-                    <input class="border rounded px-2 h-10 outline-none " type="date" name="offerDate" placeholder="">
-                </div>
-                <div class="w-full flex flex-col gap-2">
-                    <label class="gap-2 font-medium text-body  " for="offerDate">Intern Duration</label>
-                    <select class="w-full border rounded px-2 outline-none text-gray-500 h-10 " id="department"
-                        name="empType2">
-                        <option value="" disabled selected>Choose option</option>
-                        <option value="option1">1</option>
-                        <option value="option2">2</option>
-                        <option value="option3">3</option>
-                        <option value="option1">4</option>
-                        <option value="option2">5</option>
-                        <option value="option3">6</option>
-                    </select>
+                    <label class="gap-2 font-medium text-body " for="github-username">GitHub Username</label>
+                    <input class="border rounded px-2 h-10 outline-none " type="text" name="github-username" placeholder="">
                 </div>
 
 
@@ -187,8 +118,8 @@
     </div>
 
     <div class="button-primary">
-        <button class="preview-button">Preview</button>
-        <button class="sendOffer-button">Send Offer</button>
+        <button class="cancel-button">Cancel</button>
+        <button class="save-button">Save</button>
     </div>
 
 
